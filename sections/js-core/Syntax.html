@@ -1,0 +1,519 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1. 語法速覽 - Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space</li><li class="chapter-item expanded "><a href="../../introduce.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/tools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">WEB 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">3.1.</strong> API 與 RESTful API</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html"><strong aria-hidden="true">3.2.</strong> URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">3.3.</strong> HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/Secure.html"><strong aria-hidden="true">3.4.</strong> 網頁的基礎安全</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/CSR_SSR.html"><strong aria-hidden="true">3.5.</strong> 客戶端與伺服端渲染</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../sections/js-core/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/js-core/Syntax.html" class="active"><strong aria-hidden="true">4.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Types.html"><strong aria-hidden="true">4.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Object.html"><strong aria-hidden="true">4.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/JS-Arch.html"><strong aria-hidden="true">4.4.</strong> 4. JS引擎架構</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Asynchronous.html"><strong aria-hidden="true">4.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Common-skill.html"><strong aria-hidden="true">4.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Conclusion.html"><strong aria-hidden="true">4.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 附錄</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../appendix/es5-class.html"><strong aria-hidden="true">5.1.</strong> ES5 Class</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="語法速覽"><a class="header" href="#語法速覽">語法速覽</a></h1>
+<p>本小節快速說明 JavaScript 的語法，倘若是有程式語言基礎的學員，可以快速瀏覽過即可</p>
+<h2 id="變數宣告"><a class="header" href="#變數宣告">變數宣告</a></h2>
+<pre><code class="language-js">var i = &quot;str&quot;; // 宣告一個變數
+
+let j = 0;     // 宣告一個變數, After ES6
+
+const k = 100; // 宣告一個常數, After ES6
+
+/*
+ * 多行註解
+ */
+
+// 單行註解
+</code></pre>
+<p>在早期 (ES5以前)，都是使用 <code>var</code> 關鍵字來宣告變數， ES6+ 則可以使用 <code>let</code> 或 <code>const</code> 宣告變數，不過 <code>var</code> 以及 <code>let</code> 的行為並不相同，最好都使用 <code>let</code>來宣告，這個問題保留到最後說明</p>
+<h2 id="型別字面值"><a class="header" href="#型別字面值">型別字面值</a></h2>
+<p>字面值的意思是，直接提供給 JavaScript 變數的值，且不使用<strong>建構式</strong>初始化，
+舉例來說，陣列可以使用以下兩種方式宣告：</p>
+<pre><code class="language-js">let users = ['Alex', 'Bob', 'Claire'];
+
+let users = new Array('Alex', 'Bob', 'Claire');
+</code></pre>
+<p>在多數的情況下，最好使用字面值<code>(literals)</code> 來初始化內建型別</p>
+<ul>
+<li>Boolean: <code>true</code>, <code>false</code></li>
+<li>Numerical：
+<ul>
+<li>(十進制) decimal： <code>0</code>, <code>100</code>, <code>-123</code></li>
+<li>(八進制) octal： <code>015</code>, <code>021</code>, <code>-0o73</code></li>
+<li>(十六進制) hex： <code>0x15</code>, <code>0x153</code>, <code>-0xf1A7</code>(a~f 不區分大小寫)</li>
+<li>(二進制) binary： <code>0b11</code>, <code>0b0011</code>, <code>-0b11</code></li>
+</ul>
+</li>
+<li>Floating：<code>.123</code>, <code>-.01</code>, <code>0.123</code>, <code>-0.1234</code>, <code>1e-34</code>, <code>1E+12</code></li>
+<li>String：<code>'str, asd \n\r'</code>, <code>&quot;123 45 a1bd&quot;</code>, `template string`</li>
+<li>RegExp： <code>/[a-z]*/</code></li>
+<li>Array： <code>[0,1,2,3,4,5]</code></li>
+<li>Object： <code>{ a: 30, b: &quot;str&quot;, c: true }</code></li>
+</ul>
+<p>比較特殊的部分是Template String，他是由兩個 <strong>`</strong> 符號構成的字串，可以在其中使用<code>${ expr }</code>嵌入表達式：</p>
+<pre><code class="language-js">const name = &quot;Alex&quot;;
+const age = 18;
+
+const info = `${name} is ${age} year-old Man`
+// 輸出 &quot;Alex is 18 year-old Man&quot;
+</code></pre>
+<h2 id="分支結構"><a class="header" href="#分支結構">分支結構</a></h2>
+<pre><code class="language-js">// if-else
+if ( condition ) {
+
+} else {
+
+}
+
+// switch-case
+switch( case ) {
+  case 0: /* do something */ break;
+  case 1: /* do something */ break;
+  case 2: /* do something */ break;
+  default break;
+}
+</code></pre>
+<h2 id="迴圈結構"><a class="header" href="#迴圈結構">迴圈結構</a></h2>
+<pre><code class="language-js">
+while( i &lt; 100 ) {
+  /* do something */
+
+  if ( j == 50 ) continue;
+
+  if ( k == 60 ) break;
+
+  ++i;
+}
+
+for(let i = 0 ; i &lt; 100 ; ++i) {
+  /* dosomething */
+}
+
+let obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+  key: 5,
+  index: 6,
+}
+
+/* for ... in */
+for(let key in obj) {}
+for(const key in obj) {
+  console.log(key)
+  /* 依序印出 a b c d key index */
+}
+
+/* for ... of */
+for(let value of obj) {}
+for(const value of obj) {
+  console.log(value);
+  /* 依序印出 1 2 3 4 5 6 */
+}
+</code></pre>
+<h2 id="定義類別"><a class="header" href="#定義類別">定義類別</a></h2>
+<pre><code class="language-js">
+class Rect {
+  constructor(x1, y1, x2, y2) {
+    /* 成員在建構式中宣告 */
+    this.x1 = x1;
+    this.y1 = y1;
+    this.x2 = x2;
+    this.y2 = y2;
+  }
+
+  /* 宣告方法 */
+  getArea() {
+    return Math.abs((this.x2 - this.x1) * (this.y2 - this.y1));
+  }
+}
+
+class Rect {
+  constructor(x1, y1, x2, y2) {
+    /* 成員在建構式中宣告 */
+    this.x1 = x1;
+    this.y1 = y1;
+    this.x2 = x2;
+    this.y2 = y2;
+  }
+
+  /* 宣告方法 */
+  getArea() {
+    return Math.abs((this.x2 - this.x1) * (this.y2 - this.y1));
+  }
+}
+
+class Square extends Rect {
+  constructor(x1, y1, x2, y2) {
+    super(x1, y1, x2, y2); // 呼叫父類別的建構式
+  }
+}
+
+</code></pre>
+<h2 id="錯誤處理"><a class="header" href="#錯誤處理">錯誤處理</a></h2>
+<pre><code class="language-js">
+try {
+  throw new Error(&quot;Error&quot;);
+} catch (error) {
+  console.error(error);
+}
+
+/* catch 的 error 可以省略 */
+try {
+  throw new Error(&quot;Error&quot;);
+} catch {
+  console.error(&quot;something wrong&quot;);
+}
+</code></pre>
+<p>以上就是 JavaScript 的常用語法，大部分都是 C-style 的樣子</p>
+<h2 id="let-與-var"><a class="header" href="#let-與-var">let 與 var</a></h2>
+<p>在 JavaScript 的宣告中，有一個特殊規則 &quot;提升&quot;(hoist)</p>
+<blockquote>
+<p>變數和函數的宣告會在編譯階段就被放入記憶體，但實際位置和程式碼中完全一樣
+但是實際行為，就像是把宣告移動到頂層區域</p>
+</blockquote>
+<p>舉個例子來說：</p>
+<pre><code class="language-js">function sayHello(name) {
+  console.log(`${name} say: Hello!`);
+}
+
+sayHello(&quot;Alex&quot;);
+</code></pre>
+<p>以及</p>
+<pre><code class="language-js">sayHello(&quot;Alex&quot;);
+
+function sayHello(name) {
+  console.log(`${name} say: Hello!`);
+}
+</code></pre>
+<p>兩個例子，程式都可以順利運作；對於 C 語言的開發人員，可能不會覺得很特殊</p>
+<p>畢竟本來就可以先宣告函式原型，在宣告實作</p>
+<p>但是以下的例子，就顯得更特殊一點：</p>
+<pre><code class="language-js">num = 7;
+num = num2 + 1;
+var num;
+console.log(num);
+</code></pre>
+<p><img src="./images/hoist1.png" alt="Hoist1" /></p>
+<p>這個例子中，&quot;看起來&quot;好像跟預期的結果一樣，Runtime的時候告訴，並沒有宣告 <code>num2</code> 這個變數，但是修改一樣範例程式碼：</p>
+<pre><code class="language-js">num = 7;
+num = num2 + 1;
+var num, num2; //多宣告 num2
+console.log(num);
+</code></pre>
+<p><img src="./images/hoist2.png" alt="Hoist2" /></p>
+<p>令人驚訝的事情出現了，此時並沒有擲出 <code>ReferenceError</code>，程式碼的行為就如同：</p>
+<pre><code class="language-js">var num, num2;
+num = 7;
+num = num2 + 1;
+console.log(num);
+</code></pre>
+<p>因為就像是把宣告給&quot;提升&quot;到區域的最前面，所以該行為才被如此稱呼</p>
+<p>對於使用 <code>var</code> 來宣告的變數，所有的宣告都被提至函數的最前面，請注意，<strong>僅有宣告</strong>，初始化的行為還是在原本的位置：</p>
+<pre><code class="language-js">var x = 1;
+console.log(x , y) // 1 undefined
+var y = 2;
+</code></pre>
+<p>換句話說，該語法被解釋成：</p>
+<pre><code class="language-js">var x;
+var y;
+
+x = 1;
+console.log(x, y);
+y = 2;
+</code></pre>
+<p>正如 MDN 宣稱的：<code>變數和函數的宣告會在編譯階段就被放入記憶體，但實際位置和程式碼中完全一樣。</code></p>
+<p>這個行為算是該語言的歷史包袱，而在ES6之後，則出現了 <code>let</code> 與 <code>const</code> 關鍵字</p>
+<h3 id="有何不同"><a class="header" href="#有何不同">有何不同</a></h3>
+<p>最大的差異在於，<code>var</code> 的宣告基於 <code>函數(function)</code>，<code>let</code> 與 <code>const</code> 的宣告基於 <code>區塊(block)</code></p>
+<p>舉出兩個例子：</p>
+<pre><code class="language-js">function foo() {
+  {
+    /* scope 1 */
+    var a = 10;
+  }
+
+  {
+    /* scope 2 */
+    var b = a + 10;
+  }
+
+  console.log( b );
+}
+foo() // output: 20
+</code></pre>
+<p>vs</p>
+<pre><code class="language-js">function foo() {
+  {
+    /* scope 1 */
+    let a = 10;
+  }
+
+  {
+    /* scope 2 */
+    let b = a + 10; // ReferenceError：a is not defined
+  }
+
+  console.log( b );
+}
+foo() // ReferenceError：a
+</code></pre>
+<p>兩個行為非常明顯，例子二無須多做解釋，其行為就好像寫程式的邏輯一般；而例子一，因為<code>var 基於函數的範圍</code>，因此可以理解成：</p>
+<pre><code class="language-js">function foo() {
+  var a;
+  var b;
+  {
+    /* scope 1 */
+    a = 10;
+  }
+
+  {
+    /* scope 2 */
+    b = a + 10;
+  }
+
+  console.log( b );
+}
+foo() // output: 20
+</code></pre>
+<p>因此只要在函數底下的任何區塊，使用 <code>var</code> 宣告，該變數在整個函數內都可以看見，一個簡單的處理方式是使用 IIFE(Immediately Invoked Function Expression)</p>
+<pre><code class="language-js">function foo() {
+  (function(){
+    /* scope 1 */
+    var a = 10;
+  })();
+
+  (function(){
+    /* scope 2 */
+    var b = a + 10; // ReferenceError：a is not defined
+  })();
+
+  console.log( b );
+}
+foo() // ReferenceError：a
+</code></pre>
+<p>透過包裹一層立即調用的函數，把變數給隔離起來</p>
+<p>既然問題可以解決，那麼為什麼還需要<code>let</code> 跟 <code>const</code> 呢？</p>
+<p>就是為了讓 JavaScript 的行為，更符合現代語言，且 <code>let</code> 還導入了<strong>暫時性死區(TDZ)</strong> 的概念，防止一個變數在使用前，被其他函數或變數<strong>引用</strong></p>
+<pre><code class="language-js">
+i = j + 10; // 可以運行
+var i ,j;
+
+x = y + 10; // ReferenceError
+let x, y;
+</code></pre>
+<p>此外，<code>var</code> 宣告很容易沒有注意到，就錯誤的使用，例如在HTML的 <code>&lt;script&gt;&lt;/script&gt;</code> 撰寫如下的程式碼：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;/body&gt;
+&lt;script&gt;
+/* some javascript code */
+for(var i = 0; i &lt; n; ++i) { // &lt;-- for 是一個 block, 不是 function, 隱含的宣告了全域變數 i
+  /* do something */
+}
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<p>如上圖所示，或者是在 <code>function</code> 宣告時，底下只要不小心使用到 <code>var</code> 宣告，該變數馬上就會變成該函數內可見的變數，另一個原因是，在瀏覽器的行為中，Global區塊使用<code>var</code> 宣告的變數，會被掛載到 <code>window</code> 物件底下：</p>
+<p><img src="./images/browser-var.png" alt="browser-var" /></p>
+<p>因此，在現代的 JavaScript 撰寫中，請盡可能避免 <code>var</code> 的使用</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sections/js-core/Overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../sections/js-core/Types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sections/js-core/Overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../sections/js-core/Types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

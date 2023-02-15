@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HTTP 協定 - Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space</li><li class="chapter-item expanded "><a href="../../introduce.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/tools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">WEB 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">3.1.</strong> API 與 RESTful API</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html"><strong aria-hidden="true">3.2.</strong> URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html" class="active"><strong aria-hidden="true">3.3.</strong> HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/Secure.html"><strong aria-hidden="true">3.4.</strong> 網頁的基礎安全</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/CSR_SSR.html"><strong aria-hidden="true">3.5.</strong> 客戶端與伺服端渲染</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../sections/js-core/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/js-core/Syntax.html"><strong aria-hidden="true">4.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Types.html"><strong aria-hidden="true">4.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Object.html"><strong aria-hidden="true">4.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/JS-Arch.html"><strong aria-hidden="true">4.4.</strong> 4. JS引擎架構</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Asynchronous.html"><strong aria-hidden="true">4.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Common-skill.html"><strong aria-hidden="true">4.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Conclusion.html"><strong aria-hidden="true">4.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 附錄</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../appendix/es5-class.html"><strong aria-hidden="true">5.1.</strong> ES5 Class</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="http"><a class="header" href="#http">HTTP</a></h1>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview/fetching_a_page.png" alt="HTTP" /></p>
+<p>HTTP 全名為 <code>Hyper Text Transfer Protocol</code> 超文字傳輸協定</p>
+<p>紀錄於 <a href="https://www.rfc-editor.org/rfc/rfc2616.html">RFC 2616</a></p>
+<p>以及衍生的 HTTPS、HTTP/2 等協定</p>
+<p>相信各位在計算機網路概論都有學習過該協定的內容，因此這裡只會進行一些補充</p>
+<p>以及一些伺服器相關的實作</p>
+<p>請注意，如 HTTP Pipeline 之類的細節不在本章範疇，預設你已經在計算機網路概論學習過了</p>
+<h2 id="user-agent"><a class="header" href="#user-agent">User-agent</a></h2>
+<p>泛指能夠發出請求的工具，通常由瀏覽器協助處理。而一些情況下，如開發人員的Debugger、爬蟲腳本等，也算是 User-agent</p>
+<p>由瀏覽器發出的請求，通常會受到一些限制(不像自己撰寫的Request 那麼自由)，常見的工具有</p>
+<ul>
+<li>curl</li>
+<li>wget</li>
+<li>python、javascript、php 的腳本</li>
+</ul>
+<p>那在 linux 系統上，還有如 <code>nc</code> 等工具，可以建立 Raw TCP 連線，輸入 HTTP 請求文：</p>
+<p><img src="./images/nc.png" alt="netcat" /></p>
+<h2 id="http-請求格式"><a class="header" href="#http-請求格式">HTTP 請求格式</a></h2>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview/http_request.png" alt="Request" /></p>
+<p>請求會由以下幾個元素組合而成：</p>
+<ul>
+<li>HTTP 動詞</li>
+<li>請求路徑</li>
+<li>HTTP 協議版本</li>
+<li>headers</li>
+<li>請求內容</li>
+</ul>
+<p>HTTP 的 Header 可以見 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">MDN: HTTP Headers</a></p>
+<p>這裡只提幾個重要且常見的 Header:</p>
+<ul>
+<li>Authorization：添加認證資訊</li>
+<li>Content-type：告知接收方，請求內容的格式</li>
+<li>X-*：自定義的表頭</li>
+</ul>
+<p>這裡特別要提及的是 <code>Content-type</code>，在REST 章節中，有強調<code>資源的表達</code>，就是透過該表頭</p>
+<p>比方說 JSON 格式的資料，會透過 <code>content-type: application/json</code></p>
+<p>一般的表單提交，通常會會是 <code>application/x-www-form-urlencoded</code> 或是 <code>multioart/form-data</code></p>
+<p>在以前，比較少處理檔案的提交，因此使用 <code>application/x-www-form-urlencoded</code> 即可，他會把表單用類似 Query String 的方式封裝</p>
+<p>如果有個表單要輸入：帳號、密碼、電子信箱，那封裝後的資料格式為</p>
+<pre><code class="language-conf">account=myacc&amp;password=a12345678&amp;mail=user@example.com
+</code></pre>
+<h2 id="http-回應格式"><a class="header" href="#http-回應格式">HTTP 回應格式</a></h2>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview/http_response.png" alt="Response" /></p>
+<p>響應內容會由以下幾個元素組合而成：</p>
+<ul>
+<li>HTTP 協議版本號</li>
+<li>status code，告知對應請求的成功或失敗，以及原因</li>
+<li>status message，描述訊息，可以由伺服器端指定</li>
+<li>HTTP headers(與請求相似)</li>
+<li>回應主體</li>
+</ul>
+<p>Content-type 重要的原因為，他指明了資源是以何種模式傳送，即使今日我發明了某種特殊的格式 <code>my-packed</code></p>
+<p>只要伺服器端擷取 content-type 表頭，就可以知道應該以什麼樣的方式來存取資源</p>
+<p>比方說實現一個伺服器，並把回傳表頭設定為 <code>text/plain</code>，而不是 <code>text/hmtl</code></p>
+<p>這將會使得瀏覽器不把回傳內容當成 HTML 處理，因此會顯示：</p>
+<p><img src="./images/text-plain.png" alt="text-plain" /></p>
+<p>而非平常看到的網頁形式</p>
+<p>要注意的是，<strong>在瀏覽器上看到的一切，都是瀏覽器處理的</strong></p>
+<p>比方說HTML文字，瀏覽器會繪製成精美的畫面；</p>
+<p>使用 VSCode 打開，舊只是一連串的文字；</p>
+<p>請注意<strong>某些行為，是由瀏覽器幫你完成的</strong></p>
+<h2 id="https"><a class="header" href="#https">HTTPS</a></h2>
+<p>在這裡，要特別提及的事情是 <code>HTTPS</code> 為什麼要特別提呢？</p>
+<p>原因是因為，HTTPS的站點與HTTP的站點<strong>瀏覽器的行為會不一樣</strong></p>
+<p>這是因為，HTTPS的站點瀏覽器會啟用 <code>Secure Contexts</code></p>
+<p>而一般的HTTP的站點，會被限制某些 Web API，比方說 <code>麥克風</code>或是PWA的功能</p>
+<p>以 Google Meeting 的功能來說，像是直播畫面、語音通話，在HTTP站點是<strong>不可能的</strong></p>
+<p>Web API 中，有某些特別的 APIs，包含：</p>
+<ul>
+<li>需要用戶端設備的訪問權限</li>
+<li>針對特殊數據的訪問，如用戶憑證</li>
+</ul>
+<p>就不允許在 <code>HTTP</code> 站點中使用</p>
+<p>在 MDN 的 API 說明中，也會特別註記 <img src="./images/secure-context.png" alt="secure-context" /></p>
+<p>更多資訊參考 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">Secure Contexts</a></p>
+<p>而有時候，會感覺 HTTPS 的站點<strong>好像比較快</strong></p>
+<p>這也不是錯覺，因為 HTTPS 部分可能會啟用 HTTP/2 或是 SPDY 協議，因此不會限制併發數量</p>
+<p>HTTP站點會限制同網域的最大併發數量，請見<a href="https://www.linkedin.com/pulse/why-does-your-browser-limit-number-concurrent-ishwar-rimal/">這裡</a></p>
+<p>不過當使用 localhost 時，則不受到此限制，因為是透過 loopback 位址(127.0.0.0/8 or ::1/128)進行處理</p>
+<h2 id="章節回顧"><a class="header" href="#章節回顧">章節回顧</a></h2>
+<p>本章節把 HTTP 比較容易遺漏的部分看過一次，並指出HTTPS站點的行為與HTTP站點是不同的</p>
+<ul>
+<li>HTTP 的用戶端組成</li>
+<li>Content-type 的重要性</li>
+<li>瀏覽器的 Secure Contexts</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sections/related-work/URL.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../sections/related-work/Secure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sections/related-work/URL.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../sections/related-work/Secure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

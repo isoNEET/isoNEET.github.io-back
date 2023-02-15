@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>3. 物件與類別 - Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space</li><li class="chapter-item expanded "><a href="../../introduce.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/tools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">WEB 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">3.1.</strong> API 與 RESTful API</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html"><strong aria-hidden="true">3.2.</strong> URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">3.3.</strong> HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/Secure.html"><strong aria-hidden="true">3.4.</strong> 網頁的基礎安全</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/CSR_SSR.html"><strong aria-hidden="true">3.5.</strong> 客戶端與伺服端渲染</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../sections/js-core/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/js-core/Syntax.html"><strong aria-hidden="true">4.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Types.html"><strong aria-hidden="true">4.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Object.html" class="active"><strong aria-hidden="true">4.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/JS-Arch.html"><strong aria-hidden="true">4.4.</strong> 4. JS引擎架構</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Asynchronous.html"><strong aria-hidden="true">4.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Common-skill.html"><strong aria-hidden="true">4.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Conclusion.html"><strong aria-hidden="true">4.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 附錄</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../appendix/es5-class.html"><strong aria-hidden="true">5.1.</strong> ES5 Class</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="物件與類別"><a class="header" href="#物件與類別">物件與類別</a></h1>
+<p>在上個章節中，提到了<code>原型鏈</code>的概念</p>
+<p>這裡稍微深入一下：先以ES 2015的規格來舉例</p>
+<pre><code class="language-js">function Rect(w,h) {
+  if(!(this instanceof Rect))
+    throw new Error('is constructor');
+  this.w = w;
+  this.h = h;
+}
+
+Rect.prototype.add = function (r) {
+  if(!(r instanceof Rect))
+    throw new TypeError('Only allow Rect-type');
+  this.w += r.w;
+  this.h += r.h;
+}
+
+Rect.prototype.print = function () {
+  console.log(this.w + ', ' + this.h);
+}
+
+let r1 = new Rect(1,1);
+let r2 = new Rect(2,2);
+r1.add(r2);
+r1.print(); // '3, 3'
+</code></pre>
+<p>這裡定義了一個<code>Rect</code>型別，並定義了 add 與 print 方法。當宣告了一個物件時，便可以同時定義他的<code>prototype</code></p>
+<p>已知，當調用 function 的順序(<code>例如 Rect.add</code>)時，會依序查找<code>Rect.add</code> <code>Rect.prototype.add</code> <code>Object.prototype.add</code></p>
+<p>這時候有個小問題：倘若直接回傳一個 Object 呢？比方說：</p>
+<pre><code class="language-js">function Rect(w,h) {
+  return {
+    w: w,
+    h: h,
+    add: function(r) {
+      this.w += r.w;
+      this.h += r.h;
+    },
+    print: function() {
+      console.log(this.w + ', '+ this.h);
+    }
+  }
+}
+
+let r1 = Rect(1,1);
+let r2 = Rect(2,2);
+r1.add(r2);
+r1.print()
+</code></pre>
+<p>這個行為&quot;看起來&quot;會跟使用 <code>new Rect</code> 一樣，但是有個非常嚴重的問題，就是<code>r1.add !== r2.add</code></p>
+<p>這個問題的嚴重性在於，假定定義了像是<code>MyArray</code> 這種類別，並且有個方法 <code>forEach</code>，當的網頁建立了 1000 個陣列</p>
+<p><strong>forEach</strong> 也會被建立1000次，這對於記憶體的處理是非常不健康的</p>
+<p>邏輯上，成員變數應該保持在自己的scope，而方法(例如 <code>MyArray.forEach</code>) 是一個獨立的 function，由所有的<code>MyArray</code>共用該 function</p>
+<p>僅需要傳入自己的參考，MyArray便會假設 <code>this</code> 是自己傳進來的參考；</p>
+<p>再次使用C++來舉例，C++的class實作其實隱含了<code>this</code>參數，比方說</p>
+<pre><code class="language-cpp">class Point {
+public:
+  Point(int x, int y): x_(x), y_(y) {}
+
+  void add(Point p) {
+    this.x_ += p.x_;
+    this.y_ += p.y_;
+  }
+
+private:
+  int x_;
+  int y_;
+}
+</code></pre>
+<p>實際上 <code>add</code> 的簽章會包含一個隱含的參數<code>this</code></p>
+<pre><code class="language-cpp">void Point::add(Point* this, Point p) {
+  this.x_ += p.x_;
+  this.y_ += p.y_;
+}
+</code></pre>
+<p>可以使用以下的程式碼來檢視：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;functional&gt;
+
+class Point {
+public:
+  Point(int x, int y): x_(x), y_(y) {}
+
+  void add(Point&amp; p) {
+    this-&gt;x_ += p.x_;
+    this-&gt;y_ += p.y_;
+  }
+
+  int x_;
+  int y_;
+};
+
+int main() {
+  Point p1(1,1);
+  Point p2(3,3);
+  Point POINT(10,10);
+
+  auto fn = std::bind(&amp;Point::add, &amp;POINT, std::placeholders::_1);
+  fn(p1);
+  std::cout &lt;&lt; POINT.x_ &lt;&lt; &quot;, &quot; &lt;&lt; POINT.y_ &lt;&lt; &quot;\n&quot;;
+  //11, 11
+  fn(p2);
+  std::cout &lt;&lt; POINT.x_ &lt;&lt; &quot;, &quot; &lt;&lt; POINT.y_ &lt;&lt; &quot;\n&quot;;
+  //14, 14
+}
+</code></pre>
+<p>可以看到綁定了 <code>&amp;Point::add</code>，實際上是需要傳入兩個參數：<code>Point*</code> 與 <code>Point&amp;</code>
+而把第一個參數綁定在 POINT上，因此 fn 傳入任何參數，都會修改到 POINT</p>
+<h2 id="es6-底下的類別"><a class="header" href="#es6-底下的類別">ES6 底下的類別</a></h2>
+<p>幸好在 ES6 (ECMA 2016)以後的標準，提供了 <code>class</code> 與 <code>extends</code> 關鍵字，上方的 <code>Rect</code> 可寫為</p>
+<pre><code class="language-js">class Rect {
+  constructor(w, h) {
+    this.w = w;
+    this.h = h;
+  }
+
+  add(r) {
+    this.w += r.w;
+    this.h += r.h;
+  }
+
+  print() {
+    console.log(this.w + ', ' + this.h);
+  }
+}
+
+let r1 = new Rect(1,1);
+let r2 = new Rect(2,2);
+r1.add(r2);
+r1.print(); // '3, 3'
+</code></pre>
+<p>倘若多定義了 <code>Square</code> 正方形類別，只需要透過 <code>extends</code> 關鍵字即可</p>
+<pre><code class="language-js">class Square extends Rect {
+  constructor(w) {
+    super(w, w);
+  }
+
+  getArea() {
+    return this.w * this.h;
+  }
+}
+
+let s1 = new Square(10);
+s1.getArea(); // 100
+</code></pre>
+<p><code>super</code> 關鍵字會依照不同context，決定super的數值。在此處中，是調用 Parent Class 的建構式</p>
+<p>在早期，需要手動處理 prototype 的指向來模擬繼承：</p>
+<pre><code class="language-js">// Rect - 父類別
+function Rect(w,h) {
+  if(!(this instanceof Rect))
+    throw new Error('is constructor');
+  this.w = w;
+  this.h = h;
+}
+
+// 父類別的方法
+Rect.prototype.add = function (r) {
+  if(!(r instanceof Rect))
+    throw new TypeError('Only allow Rect-type');
+  this.w += r.w;
+  this.h += r.h;
+}
+
+Rect.prototype.print = function () {
+  console.log(this.w + ', ' + this.h);
+}
+
+
+// Square - 子類別
+function Square() {
+  Rect.call(this); // call super constructor.
+}
+
+// 子類別擴展(extends)父類別
+Square.prototype = Object.create(Rect.prototype);
+Square.prototype.constructor = Square;
+
+var rect = new Square();
+
+console.log('Is rect an instance of Square?', rect instanceof Square);// true
+console.log('Is rect an instance of Rect?', rect instanceof Rect);// true
+rect.move(1, 1); // Outputs, 'Shape moved.'
+</code></pre>
+<p>在章節的最後，會放上包含所有成員檢查的實現方式</p>
+<p>倘若加上了 <code>static</code> 關鍵字，其行為如同 C++的靜態方法:</p>
+<pre><code class="language-js">class Square extends Rect {
+  static internal = -1;
+
+  constructor(w) {
+    super(w, w);
+  }
+
+  getArea() {
+    return this.w * this.h;
+  }
+}
+
+let s1 = new Square(10);
+s1.getArea(); // 100
+Square.internal // -1
+
+// ES 5 以前：
+function Square(w) {
+  if(!(this instanceof Square))
+    throw new Error('');
+}
+
+Square.prototype.getArea = function(){ /* impl */ }
+Square.internal = -1;
+</code></pre>
+<p>此外，類別可以使用 <code>new Square</code> 或是 <code>new Square()</code> 的方式初始化(假設建構式不需要參數)，他們的差異是運算子優先順序</p>
+<p>因為 <code>.</code> 成員存取算運子的順序最高，所以使用</p>
+<p><code>new Square.getArea</code> 會導致錯誤，因為 <code>Square</code>不存在 <code>getArea</code> 方法，但是使用</p>
+<p><code>new Square().getArea</code> 則不會出錯，因為他實際上調用了 <code>(new Square).getArea</code></p>
+<p>懶人包： <code>new Class().method() 等同於 (new Class).method()</code>;</p>
+<h2 id="this"><a class="header" href="#this">this</a></h2>
+<p><strong>Note!</strong> 僅說明嚴格模式(strict mode) 下的情況</p>
+<p>嚴格模式通常會直接在腳本的第一行撰寫 <code>use &quot;strict&quot;;</code> 啟動，嚴格模式可以參考MDN的<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a>說明，在開發JavaScript應用時，基本上是一定會加上的</p>
+<p>this是一個特殊的值，無法於執行期間被覆蓋</p>
+<p>對於一般的function，查找this的範圍會從 caller 往上查找：</p>
+<pre><code class="language-js">let obj = {
+  prop: 300,
+  fn: function() {
+    return this.prop;
+  }
+}
+
+obj.fn() // 300;
+
+// ==========
+
+function outerFn() {
+  return this.prop;
+}
+outerFn() // Error, this(=outerFn) 並沒有 prop 這個成員
+
+obj.fn = outerFn;
+
+obj.fn() // 300, 因為此時 outerFn 繫結於 obj 的成員位址
+</code></pre>
+<p>請注意，<code>this</code> 的查找僅受到直接引用的影響，舉例來說：</p>
+<pre><code class="language-js">function fn() {
+  return this.prop;
+}
+
+let obj = {
+  prop: 100,
+  foo: fn,
+  sub: {
+    prop: 200,
+    foo: fn
+  }
+}
+
+obj.foo();  // 100
+obj.sub.foo();  // 200
+
+// 假設修改obj.sub為
+obj.sub = {
+  // prop: 200,
+  foo: fn
+}
+obj.sub.foo() // undefined, 因為最直接的引用是 obj.sub，該物件沒有prop成員
+
+obj.sub.__proto__.prop = 300;
+obj.sub.foo() // 300, 最直接的引用是 obj.sub，該物件沒有prop成員，但是原型鏈存在prop成員
+
+</code></pre>
+<h2 id="閉包與-arrow-function"><a class="header" href="#閉包與-arrow-function">閉包與 arrow function</a></h2>
+<p>箭頭函數(arrow function)，也被叫作 &quot;lambda&quot; 表達式，其表示法如下</p>
+<pre><code class="language-js">// ex.1
+const sum = (a, b) =&gt; {
+  return a + b;
+};
+
+// ex.2 當 `=&gt;` 後接的是 expression 時，可以當作回傳值
+const sum = (a, b) =&gt; a + b // 行為同 ex.1
+
+// ex.3
+const sayHello = (name) =&gt; `Hello, ${name}`
+
+// ex.4
+const sayHello = name =&gt; `Hello, ${name}` // 只有一個參數時，可以省略()
+
+// ex.5
+const returnObj = ( user ) =&gt; ({
+  name: user.first + ' ' + user.last,
+  age: user.age,
+})
+// 倘若使用 user =&gt; {}，此時的 {} 會被視作 scope statement，使用 ({}) 可強制視為 expression
+</code></pre>
+<p><strong>this的本質</strong>
+對於一般函數來說，this的建構順序如下：</p>
+<ul>
+<li>作為 new 建構子來說，是個新物件</li>
+<li>對於嚴格模式下的直接調用，this 是undefined</li>
+<li>作為物件的方法呼叫時，參考至物件上</li>
+</ul>
+<p>更準確來說，arrow function 沒有自己的 this</p>
+<p><strong>function a() {}</strong> 以及 <strong>let a = () =&gt; {}</strong> 絕對是不同的東西</p>
+<p>最主要的差異在於，arrow function 以及普通 function 所看見的 context 是不一樣的</p>
+<p>這點可能會在使用 <code>React</code> 或是 <code>Vue</code> 開發的時候，看到官方強調，何時一定要使用 <code>function</code>，而不能用 <code>arrow function</code> 代替</p>
+<pre><code class="language-js">function Person() {
+  this.age = 1;
+
+  setInterval(function growUp(){
+    this.age++; // 錯誤，因為 setInterval 的調用不是由 Person 的instance 執行
+    // 通常為 undefined, 非嚴格模式下為 window
+  });
+}
+
+// solution
+function Person() {
+  this.age = 1;
+  const self = this;
+  setInterval(function growUp(){
+    self.age++; // 正確運作，因為先用 self 把 this 的位址保存下來，並透過閉包傳遞
+  });
+}
+
+// solution 2
+function Person() {
+  this.age = 1;
+  setInterval(() =&gt; {
+    this.age++ // 正確，因為arrow function的this是基於詞法域的
+  })
+}
+</code></pre>
+<h2 id="閉包與詞法域"><a class="header" href="#閉包與詞法域">閉包與詞法域</a></h2>
+<p>通俗的解釋，語法域代表的是執行期間動態決定的行為，比方說普通函式的<code>this</code>、建構式的<code>super</code></p>
+<p>而詞法域代表的是封閉範圍的前後文，如同變數的查找一樣，舉例來說：</p>
+<pre><code class="language-js">{
+  let a = 100;
+  let b = 200;
+  {
+    let c = 300;
+    function fn() {
+      console.log(a, b, c);
+    }
+    fn() // 100, 200, 300
+  }
+  {
+    function fn() {
+      console.log(a, b, c);
+    }
+    fn() // 錯誤，c 不存於該 scope
+  }
+}
+</code></pre>
+<p>以各位的基礎，很清楚明白 <code>a, b</code> 在一個 scope, 而 <code>c</code> 在的scope可以看到外部(祖先block)</p>
+<p>所以第一個 sub block 可以看到 a,b,c，但是第二個僅能看到 a,b</p>
+<p>這就是詞法域(其行為依照原始碼的樣子)</p>
+<p>而閉包則複雜一點，以上面的例子來說，可以觀察出幾個結果：</p>
+<ul>
+<li>scope 是允許巢狀</li>
+<li>內部的 scope 可以存取外部的 scope</li>
+<li>外部的 scope 不可以存取內部的 scope</li>
+</ul>
+<p>閉包的概念，就好像透過 <code>function</code>，把內部的變數帶出去外面：</p>
+<pre><code class="language-js">function closure(initValue) {
+  let sum = initValue;
+  return function(num) {
+    sum += num;
+    return sum;
+  }
+}
+
+const sigmaFn = closure(0);
+sigmaFn(100); // 100
+sigmaFn(100); // 200
+sigmaFn(100); // 300
+</code></pre>
+<p>首先定義了 <code>closure</code>，僅允許傳入參數來初始化 sum</p>
+<p>並回傳一個 <code>function</code>，可以傳入數字來遞增 sum</p>
+<p>每一次呼叫 <code>sigma</code>，都會遞增 sum 的值，這看起來似乎沒有什麼特別，但是稍微修改一下：</p>
+<pre><code class="language-js">function closure(initValue) {
+  let sum = initValue;
+  return {
+    add: function(num) {
+      sum += num;
+      return sum;
+    }
+  }
+}
+
+const calc = closure(100);
+calc.add(20);
+calc.add(30);
+</code></pre>
+<p>把回傳值改為物件，並包含了sum值，這有兩個很特殊的作用：</p>
+<ul>
+<li>在回傳的物件中，不需要用到 <code>this</code></li>
+<li>無法透過 calc 直接存取 sum，只能透過<code>add</code>來存取</li>
+</ul>
+<p>在早期沒有arrow function時，閉包可以很好的處理this的context，而第二點則至關重要：封閉了sum的直接修改，僅允許公開的方法存取</p>
+<p>這個行為，就像是把 sum 定義為 <em>private</em> 成員，add 為 <em>public</em> 成員，透過閉包，可以模擬出物件導向的行為</p>
+<p>現在閉包用法則是比較偏向第二點，因為this已經有arrow function跟 class 關鍵字協助處理了</p>
+<p>通常會使用閉包來移轉內部資料的所有權到外部</p>
+<p>另外一個層面是，閉包可以很好的處理早期 <code>var</code> 宣告的問題(請見 <a href="./Syntax.html#let-%E8%88%87-var">語法速覽</a>)，而UMD模組載入模式，也會看到閉包的使用</p>
+<h2 id="章節回顧"><a class="header" href="#章節回顧">章節回顧</a></h2>
+<p>此章節模擬了 JavaScript 與 C++ 的類別系統，並猜測JS引擎中實現類別的作法</p>
+<ul>
+<li>理解原型鏈的概念</li>
+<li>知道 ES6 是如何定義物件的</li>
+<li>能大致區分<code>normal function</code>與<code>arrow function</code>的差異</li>
+<li>對於閉包有基本的理解</li>
+</ul>
+<h2 id="附錄"><a class="header" href="#附錄">附錄</a></h2>
+<p>包含型別檢查的繼承方式(ES5) 請參考 <a href="/appendix/es5-class.html">ES5 class</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sections/js-core/Types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../sections/js-core/JS-Arch.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sections/js-core/Types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../sections/js-core/JS-Arch.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

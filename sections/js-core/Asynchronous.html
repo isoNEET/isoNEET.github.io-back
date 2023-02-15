@@ -1,0 +1,921 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>5. 非同步程式設計 - Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space</li><li class="chapter-item expanded "><a href="../../introduce.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/tools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">WEB 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">3.1.</strong> API 與 RESTful API</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html"><strong aria-hidden="true">3.2.</strong> URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">3.3.</strong> HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/Secure.html"><strong aria-hidden="true">3.4.</strong> 網頁的基礎安全</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/CSR_SSR.html"><strong aria-hidden="true">3.5.</strong> 客戶端與伺服端渲染</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../sections/js-core/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/js-core/Syntax.html"><strong aria-hidden="true">4.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Types.html"><strong aria-hidden="true">4.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Object.html"><strong aria-hidden="true">4.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/JS-Arch.html"><strong aria-hidden="true">4.4.</strong> 4. JS引擎架構</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Asynchronous.html" class="active"><strong aria-hidden="true">4.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Common-skill.html"><strong aria-hidden="true">4.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Conclusion.html"><strong aria-hidden="true">4.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 附錄</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../appendix/es5-class.html"><strong aria-hidden="true">5.1.</strong> ES5 Class</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="非同步程式設計"><a class="header" href="#非同步程式設計">非同步程式設計</a></h1>
+<p>上個章節，快速地概覽了JS的引擎，並了解事件迴圈的機制</p>
+<p>在本章節之前，先用一個簡單的例子，說明一下&quot;非同步&quot;的情境</p>
+<p>試想一下，某個假日起床後，打算做以下幾件事情：</p>
+<ul>
+<li>刷牙洗臉 (5分鐘)</li>
+<li>享用早餐 (25分鐘)</li>
+<li>上廁所 (15分鐘)</li>
+<li>洗衣服 (1小時15分鐘)</li>
+</ul>
+<p>在每個事件，註記上該工作所需要的時間，假設一早起來先盥洗後，放下衣服去洗，上個廁所，然後享用早餐</p>
+<p>在&quot;同步&quot;的情況下，會發生以下的狀況：</p>
+<p>當盥洗後去洗衣服時，即使肚子餓了也不能用早餐；亦不能去上廁所，因為<strong>洗衣服</strong>是個<strong>阻塞事件</strong></p>
+<p>換句話說，當執行一個 Task，且該 Task 不可被中斷 <strong>(阻塞 Block)</strong>，就可以粗略地說是同步程式</p>
+<p>實際上的情況會更加複雜，因為會區分為：</p>
+<ul>
+<li>同步 (Synchronize)</li>
+<li>非同步 (Asynchronize)</li>
+<li>阻塞 (block)</li>
+<li>非阻塞 (non-block)</li>
+</ul>
+<p>但在這裡不討論如此深入，先理解第一個概念： <strong>在程式中，所有的Task都是不可中斷的，就可以說是同步程式設計</strong></p>
+<p>這裡只是帶出一個概念而已，實際上要看系統如何設計</p>
+<h2 id="現實中的狀況"><a class="header" href="#現實中的狀況">現實中的狀況</a></h2>
+<p>在生活中，也有很多非同步的情境：</p>
+<ul>
+<li>以上個例子來說，當把衣服丟進洗衣機洗後，就會離開做其他事情了</li>
+<li>煮泡麵時，通常不會倒水後，還繼續等待三分鐘都不做其他事情</li>
+<li>去銀行時，先抽取號碼牌，等到輪到自己的號碼，才去櫃檯</li>
+</ul>
+<p>試想一下上面的幾個情境：洗衣服時，要在洗衣機旁等待1小時；去銀行時，要在櫃台排隊直到自己到櫃檯前...</p>
+<p>這些都是很浪費時間的情況，而以程式設計來說，通常非同步設計會用在</p>
+<ul>
+<li><strong>I/O</strong> 發生時(非常重要)</li>
+<li>某個操作耗費時間甚鉅</li>
+</ul>
+<p>倘若假設 CPU 進行資料的運算需要 10µs，而等待硬碟把資料傳輸到記憶體需要 1 ms</p>
+<p>客觀來說，耗時約為 1ms + 10µs = 1.01ms；對於CPU來說，絕大多數的時間都在<strong>等待</strong>資料傳輸</p>
+<p>對於網頁設計來說，經典的例子是：當網頁上有圖片需要顯示時，不會等待圖片下載完成，而是會先渲染頁面的其餘部分</p>
+<hr />
+<h2 id="ajax"><a class="header" href="#ajax">AJAX</a></h2>
+<p>簡單說明一下：政府有提供一系列的開放資料，可供查詢運輸的相關情況。<a href="https://ptx.transportdata.tw/MOTC/">MOTC API</a></p>
+<p>這剛好符合即將要做的事情：透過網路，從遠端取得一些資料</p>
+<p>經由 <code>https://ptx.transportdata.tw/MOTC/v2/Bus/StationGroup/InterCity?$top=3&amp;$format=JSON</code>，可以得到以下的資料：</p>
+<div class="table-wrapper"><table><thead><tr><th>識別碼</th><th>站點代碼</th><th>站點名稱</th><th>經度</th><th>緯度</th><th>更新時間</th></tr></thead><tbody>
+<tr><td>THB100－006</td><td>100-006</td><td>台電大樓</td><td>121.53</td><td>25.01</td><td>2022-07-31T07:15:28+08:00</td></tr>
+<tr><td>THB100－009</td><td>100-009</td><td>仁愛新生路口</td><td>121.53</td><td>25.03</td><td>2022-07-31T07:15:28+08:00</td></tr>
+<tr><td>THB100－013</td><td>100-013</td><td>捷運忠孝新生站</td><td>121.53</td><td>25.04</td><td>2022-07-31T07:15:28+08:00</td></tr>
+</tbody></table>
+</div>
+<p>倘若是將該表格做成網頁，內容可能會是：</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;!-- 其他資料 --&gt;
+    &lt;/div&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;識別碼&lt;/th&gt;
+          &lt;th&gt;站點代碼&lt;/th&gt;
+          &lt;th&gt;站點名稱&lt;/th&gt;
+          &lt;th&gt;經度&lt;/th&gt;
+          &lt;th&gt;緯度&lt;/th&gt;
+          &lt;th&gt;更新時間&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;THB100－006&lt;/td&gt;
+          &lt;td&gt;100-006&lt;/td&gt;
+          &lt;td&gt;台電大樓&lt;/td&gt;
+          &lt;td&gt;121.53&lt;/td&gt;
+          &lt;td&gt;25.01&lt;/td&gt;
+          &lt;td&gt;2022-07-31T07:15:28+08:00&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;THB100－009&lt;/td&gt;
+          &lt;td&gt;100-009&lt;/td&gt;
+          &lt;td&gt;仁愛新生路口&lt;/td&gt;
+          &lt;td&gt;121.53&lt;/td&gt;
+          &lt;td&gt;25.03&lt;/td&gt;
+          &lt;td&gt;2022-07-31T07:15:28+08:00&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;THB100－013&lt;/td&gt;
+          &lt;td&gt;100-013&lt;/td&gt;
+          &lt;td&gt;捷運忠孝新生站&lt;/td&gt;
+          &lt;td&gt;121.53&lt;/td&gt;
+          &lt;td&gt;25.04&lt;/td&gt;
+          &lt;td&gt;2022-07-31T07:15:28+08:00&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div&gt;
+      &lt;!-- 其他資料 --&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>這個假設的網頁，可能還包含了該表格以外的資料，使用 <code>&lt;!-- 其他資料 --&gt;</code> 替代，</p>
+<p>假設上面的表格是會更新的(Ex. 每 30 分鐘一次)，每次都需要重新要求整個頁面，是很浪費效能的</p>
+<p>因為用戶只關心<strong>會變化的資料</strong>，比方說上面的<em>表格</em></p>
+<p>在之後，會說明什麼是<strong>RestAPI</strong>，因此這裡先不解釋，只需要先知道一件事情：</p>
+<p>網頁依賴另一個伺服器的資料，且這個資料在網頁上<code>可能</code>會常常變化</p>
+<h2 id="早期的實現"><a class="header" href="#早期的實現">早期的實現</a></h2>
+<p>在過去 YAHOO 帳號還很流行的時候，許多人都會去辦一組信箱：</p>
+<p>若你忘記流程了，我稍微複習一下</p>
+<ul>
+<li>輸入一個帳號名稱</li>
+<li>輸入你的姓名、基本資料</li>
+<li>送出表單</li>
+<li>喔，你有可能帳號名稱跟別人重複了、或是密碼不符合格式(比方說要包含大小寫英數字)</li>
+</ul>
+<p>在隨後幾年(2010)，Google 進入大家的生活，同樣的流程：</p>
+<ul>
+<li>輸入一個帳號名稱</li>
+<li>準備輸入你的姓名、基本資料</li>
+<li><strong>已經知道該帳號有沒有被註冊過了</strong></li>
+<li>填寫其他項目...</li>
+</ul>
+<p>這在現今很常見的情況，是由 Google 所發揚的技術之一 - AJAX</p>
+<p>早在 Google 使用該方法之前，早就有這項技術，全名叫做 <code>Asynchronous JavaScript And XML(AJAX)</code></p>
+<p>概念十分單純：平常使用的網頁，其實大部分的版面是固定的，僅有一小部分會變化，比方說：</p>
+<ul>
+<li>圖書館館藏系統：只有搜尋結果的部分會改變</li>
+<li>帳號註冊系統：表單都是一樣的，只是要檢查帳號、密碼合不合格</li>
+<li>Youtube：搜尋影片時，只有下方的影片清單會改變</li>
+</ul>
+<p>諸多應用，因此提出一個概念：<strong>能不能只交換需要的部分？</strong></p>
+<p>因為早期使用XML做為資料傳輸的格式(近幾年幾乎都改用JSON)，所以稱為AJAX</p>
+<p>概念如下：我透過背景發起網路I/O，並等到伺服器回應後，再把資料取出來使用，實現的程式碼如下</p>
+<pre><code class="language-js">const domain = 'ptx.transportdata.tw';
+const apiPath = 'MOTC/v2/Bus/StationGroup/InterCity';
+const query = '$top=3&amp;$format=JSON';
+
+const targetUrl = `https://${domain}/${apiPath}?${query}`;
+
+let xhr = new XMLHttpRequest();
+
+/* xhr.open(method, url) 以特定的HTTP方法開啟某個網址 */
+xhr.open('get', targetUrl);
+
+/* 當資料完成後，要做什麼事情 */
+xhr.onload = function(e) {
+  console.log(xhr.responseText);
+}
+/* 等校的程式碼：
+xhr.addEventListener('load', e =&gt; {
+  console.log(xhr.responseText);
+}) */
+
+/* 送出請求 */
+xhr.send();
+</code></pre>
+<p>看到 <code>onload</code>，就知道當完成後，會發送一個事件，通知應該去取得資料</p>
+<h2 id="現在的做法"><a class="header" href="#現在的做法">現在的做法</a></h2>
+<p>在ES 6(ECMA 2016)之後，推出了一系列的API，其中影響距甚的就有 <code>Promise</code></p>
+<p>而ES 7之後，則推出了 <code>async/await</code> ，更方便進行處理</p>
+<h2 id="promise"><a class="header" href="#promise">Promise</a></h2>
+<p>Promise 的含意是：一個未來的值，且當狀態決定之後，絕對不會改變</p>
+<p>這有一些抽象，用實際的例子來說明，首先是 Promise 的函式簽章：</p>
+<pre><code class="language-js">
+function executor( resolve, reject ) {
+  /* do something */
+}
+
+let promise = new Promise( executor );
+
+</code></pre>
+<p><code>executor</code> 的型別是 <code>Function</code>，並接受兩個參數 <code>resolve</code> 和 <code>reject</code>，兩個參數都是 <code>function</code></p>
+<p>resolve 的意義是：當操作成功，應該調用該方法</p>
+<p>reject 的意義是：當操作失敗，應該調用該方法</p>
+<p>這個用法十分常見，這裡先補充一下</p>
+<pre><code class="language-js">function calc( callback ) {
+  let a = Math.random() * 100;
+  let b = Math.random() * 100;
+  return callback(a, b);
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+function mul(a, b) {
+  return a * b;
+}
+
+calc(add) // return `Math.random() * 100` + `Math.random() * 100` 的值
+calc(mul) // return `Math.random() * 100` * `Math.random() * 100` 的值
+</code></pre>
+<p>在 JavaScript，很常 Function 的參數是接受一個 Function</p>
+<p>呼叫 calc 時，calc內部會生成兩個隨機數字 <code>a</code>, <code>b</code>，並傳入 <code>callback</code> 這個 Function</p>
+<p>而 add 和 mul 常這兩個被傳入的function，常被叫做 <code>callback</code> 或是 <code>handler</code>，比方說滑鼠點擊事件的函數簽章：</p>
+<pre><code class="language-js">htmlElement.addEventListener('click', e =&gt; {
+  console.log(e);
+})
+</code></pre>
+<p><code>addEventListener</code> 接收兩個參數：第一個是事件種類，常用的有 <code>click</code>, <code>change</code>, <code>load</code> ... 等</p>
+<p>第二個參數則是一個 <code>handler</code>，他會把事件物件傳給 <code>handler</code>，供 <code>handler</code>使用</p>
+<p>那麼回到 <code>Promise</code>，可以理解成 <code>Promise</code> 內部會生成兩個 <code>callback</code> 供使用</p>
+<p>這使得可以決定 <code>Promise</code> 的狀態是成功的還是失敗的：</p>
+<pre><code class="language-js">let promise = new Promise((resolve, reject) =&gt; {
+  const value = Math.random() * 1000;
+  if(value &gt; 500)
+    resolve(value);
+  else
+    reject(value);
+});
+</code></pre>
+<p><code>new Promise</code> 回傳的實例，會提供 <code>then</code> 或是 <code>catch</code> 方法，分別對應 <code>resolve</code> 和 <code>reject</code> ：</p>
+<pre><code class="language-js">promise
+  .then(value =&gt; console.log(value))   // 當 resolve 被調用時，進入該函式
+  .catch(value =&gt; console.log(value)); // 當 reject 被調用時，進入該函式
+</code></pre>
+<p>這樣理解Promise：一個未來會存在的數值，且狀態確定後，就不會改變了</p>
+<p>狀態不會改變的意思是：</p>
+<pre><code class="language-js">let promise = new Promise((resolve, reject) =&gt; {
+  const flag = true;
+  resolve(true);
+  reject(false); // 無效，已經呼叫了 resolve
+});
+
+promise
+  .then(value =&gt; console.log(value))  // print 'true';
+  .catch(value =&gt; console.log(value)) // 不會執行
+</code></pre>
+<p>這個就是 Promise 不變性的意思：</p>
+<ul>
+<li>一開始處於 pending 狀態：還未調用 <code>resolve</code> 或是 <code>reject</code> 之前，都處於該狀態</li>
+<li>當 resolve 調用後：成為 fulfilled(實現) 狀態</li>
+<li>當 reject 調用後：成為 rejected(拒絕) 狀態</li>
+</ul>
+<p>Promise 一旦被決定是 fulfilled 還是 rejected 後，就不會變成其他狀態了
+而 Promise 只會被決定<strong>一次</strong>狀態，意思是：</p>
+<pre><code class="language-js">let promise = new Promise((resolve, reject) =&gt; {
+  const flag = true;
+  resolve(true);  // 在該階段，Promise 成為 fulfilled 狀態
+  resolve(false); // 無效，Promise的狀態已經被決定了
+});
+</code></pre>
+<p>而 <code>then</code> 和 <code>catch</code> 的回傳值，會成為下一個 <code>Promise</code> 的值：</p>
+<pre><code class="language-js">
+let promise = new Promise((resolve, reject) =&gt; {
+  resolve(10); // 必定會成功的 Promise
+});
+
+promise
+  .then(value =&gt; {
+    console.log(value); // print 10
+    return value * 100
+  })
+  .then(value =&gt; {
+    console.log(value); // print 1000
+  });
+</code></pre>
+<p>且 Promise 有個特性：他可以類似串列一般，把本次的回傳值做為下一個promise的傳入</p>
+<pre><code class="language-js">let promise = new Promise((resolve, reject) =&gt; {
+  const flag = Math.random() &gt; 0.5; // Math.random() 會隨機回傳 0~1 之間的數字
+  if(flag) {
+    resolve(1,2,3,4,5) // 僅接受第一個參數
+  } else {
+    reject(10,20,30) // 僅接受第一個參數
+  }
+});
+
+promise
+  .then((a,b,c,d,e) =&gt; {
+    console.log(a,b,c,d,e); // print 1, undefined * 4
+    return 100;
+  })
+  .catch((a,b,c) =&gt; {
+    console.log(a,b,c); // print 10, undefined * 2
+    return -100;
+  })
+  .then( value =&gt; {
+    // 如果 flag 為 true，代表進入上一個 then，此時 value = 100
+    // 反之 flag 為 false，代表進入上一個 catch，此時 value = -100
+    console.log(value);
+    return 10000
+  })
+  .finally(e =&gt; {
+    // 可以調用 finally()，代表不論在 then 還是 catch 都要執行的事件
+    console.log(e) // undefined，finally不接受任何參數
+  })
+</code></pre>
+<p>Promise的出現，為帶來了一個重要的進展 - 可以針對非同步事件進行排序</p>
+<p>以上個個章節的例子，要下載 fileA, fileB, fileC，且一定要依照A B C的順序</p>
+<p>在上個章節，用<code>arr[0]、arr[1]、arr[2]</code>分別存入A、B、C的值，但是使用 Promise 後，可以改為：</p>
+<pre><code class="language-js">function download(url) {
+  return new Promise( (resolve, reject) =&gt; {
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', url);
+    xhr.addEventListener('load', () =&gt; {
+      resolve(xhr.responseText) // 下載完成後，調用 resolve
+    })
+    xhr.addEventListener('error', e =&gt; {
+      reject(e.message) // 若失敗，調用 reject
+    });
+    xhr.send() //送出請求
+  })
+}
+
+
+function downloadABC() {
+  download(siteA)
+    .then(data =&gt; {
+      console.log(data);
+      return download(siteB);
+    })
+    .then(data =&gt; {
+      console.log(data);
+      return download(siteC);
+    })
+    .then(data =&gt; {
+      console.log(data);
+    });
+}
+
+downloadABC() //依序呼叫 siteA、siteB、siteC 的下載內容
+</code></pre>
+<h2 id="更深入的-promise"><a class="header" href="#更深入的-promise">更深入的 Promise</a></h2>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/promises.png" alt="Promise" /></p>
+<p>這裡直接引用 MDN 的 Promise 流程圖：起初在 <code>pending</code> 狀態，接下來根據 <code>fulfill</code> 或是 <code>reject</code>，調用 <code>onFulfillment</code> 或是 <code>onRejection</code>，此時就被稱為 <code>settled</code> 狀態</p>
+<p>值得注意的地方是，可以看到其實 <code>then()</code> 是可以接受兩個 callback：</p>
+<pre><code class="language-js">const invokeFn = () =&gt; Promise.reject(&quot;oops!&quot;)
+
+/* Example 1 */
+invokeFn()
+  .then(
+    () =&gt; console.log(&quot;onFulfillment&quot;),
+    reason =&gt; console.log(`onReject ${reason}`)
+  )
+  .catch(
+    reason =&gt; console.log(`ErrorCatch, ${reason}`)
+  );
+
+/* Example 2 */
+invokeFn()
+  .then(
+    () =&gt; console.log(&quot;onFulfillment&quot;),
+  )
+  .catch(
+    reason =&gt; console.log(`ErrorCatch, ${reason}`)
+  );
+</code></pre>
+<p><img src="./images/../Promise.png" alt="Promise" /></p>
+<p>在舊一點的實作中，會特意把 <code>fulfill</code>, <code>reject</code>, <code>error</code> 三種情況分開，舉例來說，當呼叫伺服器的API時，可能會發生<code>200 OK</code>, <code>403 Forbidden</code>，跟無回應：也就是有三種可能的情況，伺服器收到請求並允許、伺服器收到請求並拒絕、完全無回應</p>
+<p>那對於客戶端來說，<code>onFulfillment</code> 對應到 <code>status 200</code>，<code>onReject</code> 對應到 <code>status 403</code>，最後<code>onCatchError</code> 對應到伺服器無回應</p>
+<ul>
+<li>Promise.resolve(val) 回傳一個進入 <code>fulfill</code> 狀態的 Promise 物件</li>
+<li>Promise.reject(val) 回傳一個進入 <code>reject</code> 狀態的 Promise 物件</li>
+</ul>
+<p>注意流程圖的第三階段，無論是 <code>then</code> 還是 <code>catch</code> 方法，都會會傳一個新的 <code>Promise</code> 物件</p>
+<h2 id="進階練習"><a class="header" href="#進階練習">進階練習</a></h2>
+<p>這就如上方的 <code>downloadABC</code> 例子，每一次的 then 都會回傳一個新的 Promise 物件，又Promise 只會被決定一次狀態，因此可以提出兩種變體：</p>
+<p>首先定義一個<strong>模擬下載</strong>  的Promise函式，他接受兩個值：val 以及 isSuccess</p>
+<pre><code class="language-js">/* val 設定成當 Promise settled 時，應該回傳的值 */
+/* isSuccess 則決定，該 Promise 的狀態是 `fulfill` 還是 `reject` */
+const download = (val, isSuccess = true) =&gt; {
+  if(isSuccess) {
+    return Promise.resolve(`Fulfill: ${val}`);
+  } else {
+    return Promise.reject(`Reject: ${val}`);
+  }
+}
+
+download(&quot;data A&quot;)
+  /* stage 1 */
+  .then(data =&gt; {
+    console.log(`Savepoint 1: ${data}`);
+    return download(&quot;data B&quot;);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 2: ${err}`);
+    return download(&quot;error-data B&quot;);
+  })
+  /* stage 2 */
+  .then(data =&gt; {
+    console.log(`Savepoint 3: ${data}`);
+    return download(&quot;data C&quot;);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 4: ${err}`);
+    return download(&quot;error-data C&quot;);
+  })
+  /* stage 3 */
+  .then(data =&gt; {
+    console.log(`Savepoint 5: ${data}`);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 6: ${err}`);
+  })
+</code></pre>
+<p>這個例子看起來非常複雜對嗎？但是可以經過簡單的拆解，理清這個範例的執行結果：</p>
+<p>在第一次呼叫 download 時，第二個參數 <code>isSuccess</code> 為 true，因此該次執行結果是 <code>fulfill</code></p>
+<pre><code class="language-js">download(&quot;data A&quot;) // fulfill
+</code></pre>
+<p>此時會經過 <code>Savepoint 1</code>，並印出 &quot;Savepoint 1: Fulfill: data A&quot;
+下一行的 <code>download(&quot;data B&quot;)</code> 也是 <code>fulfill</code>，因此會略過 catch，進入到 <code>stage 2</code> 的 <code>Savepoint 3</code>，並印出 &quot;Savepoint 3: Fulfill: data B&quot;</p>
+<p>同樣的，最後則會走到 <code>stage 3</code> 的 &quot;Savepoint 5&quot;，並印出 &quot;Savepoint 5: Fulfill: data C&quot;</p>
+<p>最終輸出：</p>
+<pre><code class="language-text">Savepoint 1: Fulfill: data A
+Savepoint 3: Fulfill: data B
+Savepoint 5: Fulfill: data C
+</code></pre>
+<p>其實有個大原則：只要找當下離當下 <code>Promise</code> 最近的 <code>then</code> 和 <code>catch</code>，再根據 settled 的狀態決定路徑</p>
+<p>下面的例子，會把&quot;看不到&quot;的路徑，先註解起來</p>
+<pre><code class="language-js">download(&quot;data A&quot;) // &lt;--- 目前執行的位置
+  /* stage 1 */
+  .then(data =&gt; { // &lt;--- 最近的 then
+    console.log(`Savepoint 1: ${data}`);
+    return download(&quot;data B&quot;);
+  })
+  .catch(err =&gt; { // &lt;--- 最近的 catch
+    console.log(`Savepoint 2: ${err}`);
+    return download(&quot;error-data B&quot;);
+  })
+  /* stage 2 */
+  // .then(data =&gt; {
+  //   console.log(`Savepoint 3: ${data}`);
+  //   return download(&quot;data C&quot;);
+  // })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 4: ${err}`);
+  //   return download(&quot;error-data C&quot;);
+  // })
+  /* stage 3 */
+  // .then(data =&gt; {
+  //   console.log(`Savepoint 5: ${data}`);
+  // })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 6: ${err}`);
+  // })
+</code></pre>
+<p>該次結果是成功，因此會進到 then，此時在 <code>Savepoint 1</code>：</p>
+<pre><code class="language-js">// download(&quot;data A&quot;) 
+  /* stage 1 */
+  .then(data =&gt; { 
+    console.log(`Savepoint 1: ${data}`);
+    return download(&quot;data B&quot;); // &lt;--- 目前執行的位置
+  })
+  .catch(err =&gt; { // &lt;--- 最近的 catch
+    console.log(`Savepoint 2: ${err}`);
+    return download(&quot;error-data B&quot;);
+  })
+  /* stage 2 */
+  .then(data =&gt; { // &lt;--- 最近的 then
+    console.log(`Savepoint 3: ${data}`);
+    return download(&quot;data C&quot;);
+  })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 4: ${err}`);
+  //   return download(&quot;error-data C&quot;);
+  // })
+  /* stage 3 */
+  // .then(data =&gt; {
+  //   console.log(`Savepoint 5: ${data}`);
+  // })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 6: ${err}`);
+  // })
+</code></pre>
+<p>這次結果也是成功，因此會進到 then，此時在 <code>Savepoint 3</code>：</p>
+<pre><code class="language-js">// download(&quot;data A&quot;) 
+  /* stage 1 */
+  // .then(data =&gt; { 
+  //   console.log(`Savepoint 1: ${data}`);
+  //   return download(&quot;data B&quot;);
+  // })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 2: ${err}`);
+  //   return download(&quot;error-data B&quot;);
+  // })
+  /* stage 2 */
+  .then(data =&gt; { 
+    console.log(`Savepoint 3: ${data}`);
+    return download(&quot;data C&quot;); // &lt;--- 目前執行的位置
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 4: ${err}`);
+    return download(&quot;error-data C&quot;);  // &lt;--- 最近的 catch
+  })
+  /* stage 3 */
+  .then(data =&gt; { // &lt;--- 最近的 then
+    console.log(`Savepoint 5: ${data}`);
+  })
+  // .catch(err =&gt; {
+  //   console.log(`Savepoint 6: ${err}`);
+  // })
+</code></pre>
+<p>最後的結果還是成功，因此會進到 then，此時在 <code>Savepoint 5</code>：</p>
+<p>可以修改範例，比方說，在 <code>stage 1</code> 的 <code>then</code> 扔出一個 Error：</p>
+<pre><code class="language-js">download(&quot;data A&quot;)
+  /* stage 1 */
+  .then(data =&gt; {
+    console.log(`Savepoint 1: ${data}`);
+    throw &quot;Something wrong&quot; // &lt;------- 加入該行
+    return download(&quot;data B&quot;);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 2: ${err}`);
+    return download(&quot;error-data B&quot;);
+  })
+  /* stage 2 */
+  .then(data =&gt; {
+    console.log(`Savepoint 3: ${data}`);
+    return download(&quot;data C&quot;);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 4: ${err}`);
+    return download(&quot;error-data C&quot;);
+  })
+  /* stage 3 */
+  .then(data =&gt; {
+    console.log(`Savepoint 5: ${data}`);
+  })
+  .catch(err =&gt; {
+    console.log(`Savepoint 6: ${err}`);
+  })
+</code></pre>
+<p>此時的輸出順序就會是</p>
+<pre><code class="language-text">Savepoint 1: Fulfill: data A
+Savepoint 2: Something wrong
+Savepoint 3: Fulfill: error-data B
+Savepoint 5: Fulfill: data C
+</code></pre>
+<p>更多資料請參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></p>
+<h2 id="fetch"><a class="header" href="#fetch">fetch</a></h2>
+<p>ES 6 也提供了 <code>fetch</code> API，他就像是上面的 <code>download</code> 的實作，只是是由瀏覽器提供的WebAPI：</p>
+<pre><code class="language-js">const result = fetch(url, {
+  method,  // HTTP Method, default 為 get
+  headers, // HTTP 表頭, default為null
+  body,     // 內容, default為null
+  ...moreOptions
+});
+
+result.then(e =&gt; {
+  return e.json() //把資料以JSON格式解讀
+})
+.then(json =&gt; {
+  console.log(json)
+});
+</code></pre>
+<p>這就是最常用來抓取伺服器資料的方法，比方說上面那個抓取政府運輸資料的程式可改為：</p>
+<pre><code class="language-js">const domain = 'ptx.transportdata.tw';
+const apiPath = 'MOTC/v2/Bus/StationGroup/InterCity';
+const query = '$top=3&amp;$format=JSON';
+
+const targetUrl = `https://${domain}/${apiPath}?${query}`;
+
+fetch(targetUrl)
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    /* do something */
+    console.log(data) // 印出資料
+  });
+</code></pre>
+<p>執行結果
+<img src="./images/response.png" alt="response" /></p>
+<p><strong>Note!</strong> 如果請求的站點出現<code>404 NOT FOUND</code>，那麼fetch的結果是 <strong>fulfilled</strong></p>
+<p>原因：fetch代表的是對伺服器<strong>發出請求</strong>，而不是取得資料，而404 status一樣是伺服器的回傳結果</p>
+<pre><code class="language-js">fetch(&quot;httpp://www.google.com&quot;)
+  .then(d =&gt; {
+    console.log(true);
+  })
+  .catch(err =&gt; {
+    console.log(&quot;Error&quot;)
+  }) //進入 catch
+</code></pre>
+<p>這個例子中，誤把 <code>http</code> 打成 <code>httpp</code>，一個未知的協定，因此無法發出請求
+導致直接進入 catch 階段</p>
+<pre><code class="language-js">const domain = 'ptx.transportdata.tw';
+const apiPath = 'MOTC/v2/Bus/StationGroup/InterCity';
+const query = '$top=3&amp;$format=JSON';
+
+const targetUrl = `https://${domain}/${apiPath}?${query}`;
+
+fetch(targetUrl)
+  .then(res =&gt; {
+    return res.text(); // 這次不使用 json()，而是使用 text() 取得未 paese 的內容
+  })
+  .then(content =&gt; {
+    console.log(content);
+    return JSON.parse(content+'}');
+  })
+  .catch(err =&gt; {
+    // 會進入這裡，因為在 content 後加上 '}'，導致無法順利解析成JSON格式
+    console.log(&quot;Parse error&quot;)
+  })
+</code></pre>
+<p>而上述的例子中，可以觀察到在 then 或是 catch 中 <code>throw Error</code>，會進入下個階段的 catch</p>
+<p>更多資料請參考 <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">MDN - fetchAPI</a></p>
+<h2 id="async-與-await"><a class="header" href="#async-與-await">async 與 await</a></h2>
+<p>在前兩個章節，了解了 Promise 的使用方法，但是有個問題：Promise的回傳值永遠都是 Promise</p>
+<p>因此要在外部使用<code>fetch</code>到的資料，會有點麻煩：</p>
+<pre><code class="language-js">let a;
+
+fetch(url)
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    a = data;
+  });
+
+function useDataA(data) {
+  /* do something */
+}
+</code></pre>
+<p>這樣就有點雞生蛋、蛋生雞，因為不知道 a 何時會就緒，因此有兩種做法：</p>
+<pre><code class="language-js">// Sol 1：在 promise 內部使用 data
+fetch(url)
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    useDataA(data);
+  });
+
+// Sol 2：使用 setInterval，每隔一段時間檢查a的狀態
+let a;
+
+fetch(url)
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    a = data;
+  });
+
+function useDataA() {
+  // 每隔 300ms 檢查一次
+  const timer = setInterval(() =&gt; {
+     // a 就緒了，清除計時器
+    if(a) {
+      clearInterval(timer)
+      /* do something */
+      JSON.parse(a);
+    };
+  }, 300)
+}
+</code></pre>
+<p>這對程式設計來講，是個沉重的負擔，因此在 ES 7，推出了 <code>async function</code></p>
+<pre><code class="language-js">
+async function add(a, b) {
+  return a + b;
+}
+
+let result = add(a, b);
+
+console.log(a) // Promise object
+</code></pre>
+<p>可以在 <code>function</code> 前，加上<code>async</code> 關鍵字，指示該函式成為<em>非同步函式</em></p>
+<p>非同步函式有兩個特色：</p>
+<ul>
+<li>回傳值<strong>永遠</strong>都是 Promise 物件</li>
+<li>允許使用 <code>await</code></li>
+</ul>
+<p>回傳值永遠都是 Promise 物件的意思是，不論 return 什麼值，async function都會包裝成 Promise</p>
+<pre><code class="language-js">async function add(a, b) {
+  return a + b;
+}
+
+let result = add(10, 20);
+
+result.then(value =&gt; console.log(value)) // 會印出 30
+</code></pre>
+<p>這個特色滿正常的，因為他就是指示某個function是非同步事件，所以使用Promise封裝很合理；
+重點是特色2</p>
+<p><code>await</code> 可以取出 Promise 最後的回傳值，比方說：</p>
+<pre><code class="language-js">function return100() {
+  return new Promise((resolve, reject) =&gt; resolve(100));
+}
+
+// 正常使用：
+return100()
+  .then(data =&gt; console.log(data)) // print 100
+
+
+// 在 async function 中使用 await
+async function get100() {
+  const result = await return100();
+  console.log(result) // print 100
+}
+</code></pre>
+<p>很神奇吧！他可以讓的非同步程式&quot;看起來&quot;像同步程式</p>
+<p>如果以上面那個download A、B、C 的例子，就可以改成</p>
+<pre><code class="language-js">function download(url) {
+  return fetch(url)
+          .then(res =&gt; res.text());
+}
+
+async function processData() {
+  const dataA = await download(siteA);
+  const dataB = await download(siteB);
+  const dataC = await download(siteC);
+}
+</code></pre>
+<p>如上所示，<code>processData</code>的行為就像是同步程式，那你可能有個疑問：</p>
+<p><code>await</code> 對應到 <code>then</code> 方法，那麼 <code>catch</code> 呢？</p>
+<p>直接使用 <code>try { ... } catch { ... }</code> 即可</p>
+<pre><code class="language-js">async function processData() {
+  try {
+    const dataA = await download(siteA);
+    const dataB = await download(siteB);
+    const dataC = await download(siteC);
+  } catch {
+    console.log(&quot;Download Failed&quot;);
+  }
+}
+</code></pre>
+<p>這就是 <code>async/await</code> 的使用方法</p>
+<p>更多資料請參考 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">MDN - async function</a></p>
+<h2 id="章節回顧"><a class="header" href="#章節回顧">章節回顧</a></h2>
+<p>這裡花了極大的篇幅在解釋非同步程式設計，以及 <code>Promise</code> 物件的使用方法
+本章節可以說是 <strong>最重要的</strong> 概念，請務必深入理解<code>Promise</code>的概念</p>
+<ul>
+<li>理解非同步事件的概念</li>
+<li>AJAX 的重要性</li>
+<li>Promise API</li>
+<li>fetch API</li>
+<li>async/await 關鍵字</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sections/js-core/JS-Arch.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../sections/js-core/Common-skill.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sections/js-core/JS-Arch.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../sections/js-core/Common-skill.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

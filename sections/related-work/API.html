@@ -1,0 +1,585 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>API 與 RESTful API - Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space</li><li class="chapter-item expanded "><a href="../../introduce.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/tools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">WEB 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/API.html" class="active"><strong aria-hidden="true">3.1.</strong> API 與 RESTful API</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html"><strong aria-hidden="true">3.2.</strong> URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">3.3.</strong> HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/Secure.html"><strong aria-hidden="true">3.4.</strong> 網頁的基礎安全</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/CSR_SSR.html"><strong aria-hidden="true">3.5.</strong> 客戶端與伺服端渲染</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../sections/js-core/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/js-core/Syntax.html"><strong aria-hidden="true">4.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Types.html"><strong aria-hidden="true">4.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Object.html"><strong aria-hidden="true">4.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/JS-Arch.html"><strong aria-hidden="true">4.4.</strong> 4. JS引擎架構</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Asynchronous.html"><strong aria-hidden="true">4.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Common-skill.html"><strong aria-hidden="true">4.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../sections/js-core/Conclusion.html"><strong aria-hidden="true">4.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 附錄</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../appendix/es5-class.html"><strong aria-hidden="true">5.1.</strong> ES5 Class</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="什麼是api"><a class="header" href="#什麼是api">什麼是API</a></h1>
+<p>本章節的一開始，首先要釐清 API 的意思。API - Application Programming Interface</p>
+<p>其代表的意義為應用程式的互動介面，Protocol、函式簽章等，寬鬆意義上也可以說是 API</p>
+<p>而另一方面的意義，則是<strong>程式設計</strong>的相關實作</p>
+<p>舉例來說：</p>
+<ul>
+<li>需要使用 OpenGL 繪製，會使用到 <code>gl[FunctionName]</code>
+<ul>
+<li>glVertex2f、glBegin、glEnd ... 等</li>
+</ul>
+</li>
+<li>透過URL抓取資料，比方說：<code>http://www.example.com/data</code></li>
+<li>調用System Call，如 C 語言的 <code>#include&lt;sys/*.h&gt;</code> 等</li>
+</ul>
+<p>重點在於<code>介面 interface</code>，從資料結構、常數、函式，到圖形化介面的按鈕</p>
+<p>比方說同樣使用Postgresql資料庫，可以寫一個JavaScript程式碼：</p>
+<pre><code class="language-js">const { appendFileSync } = require('fs');
+const { Client } = require('pg');
+
+const conf = {/* Database connection infomation */}
+
+const client = new Client(conf);
+
+const command = `SELECT * FROM datas`;
+
+client
+  .query(command)
+  .then({ rows } =&gt; {
+    const transfromData = rows.map( row =&gt; JSON.stringify(row));
+    appendFileSync('data.json', transfromData);
+    process.exit();
+  });
+</code></pre>
+<p>或者使用 shell 去存取：</p>
+<pre><code class="language-sh">
+psql -d mydatabase -U user --password
+
+
+psql (12.11 (Ubuntu 12.11-0ubuntu0.20.04.1))
+Type &quot;help&quot; for help.
+
+user=# SELECT * FROM datas;
+</code></pre>
+<p>或許透過不同的方式去存取資料庫，但是最終目的都是 <code>從某個地方把資料讀出來</code>，而資料庫則是提供了客戶端的程式<code>psql</code> 或是相關的函式庫(<code>libpg</code>)</p>
+<p>針對特定功能，提供一系列操作的介面，就是 API 的本質</p>
+<p><strong>Note!</strong> 請注意，重點是介面</p>
+<p>比方說 <code>Firefox</code> 與 <code>Chrome</code> 都有 <code>console.log</code> 來輸出一些資料在 DevTools 上
+他們內部的實現不一定是相同的，但都可以用 <code>console.log</code> 做到這件事情</p>
+<h2 id="interface-至關重要"><a class="header" href="#interface-至關重要">Interface 至關重要</a></h2>
+<p>介面的概念非常重要，因為介面<strong>隱藏了細節</strong>，以生活的例子來說：</p>
+<p>無論是電腦、電視、手機充電器、微波爐 ... 等家具，都可以統一透過 110V 或是 220V 的插座使用</p>
+<p>也許他們的功率分別是 700W、300W、65W、1200W，但是對於電源輸入的介面，所有的電器大抵上都是相同的</p>
+<p>而對於程式的設計，介面的重要性有幾點：</p>
+<ol>
+<li>對於第三方開發人員來說，他隱藏了內部的實現，僅把操作的函式暴露出去</li>
+<li>對於使用者來說，提供了大致相同的操作方法</li>
+<li>對於模組的規畫人員，提供了一個好的設計模式</li>
+</ol>
+<p>對於1、2點，算是非常直白，因此這裡著重在第3點</p>
+<h3 id="介面隔離原則--依賴反轉原則"><a class="header" href="#介面隔離原則--依賴反轉原則">介面隔離原則 &amp; 依賴反轉原則</a></h3>
+<p>雖然設計模式的理解在程式碼的開發上也相當重要，但是這裡不打算細談，只會提出這兩個重要的原則：</p>
+<p>介面隔離原則 Interface Segregation Principle</p>
+<blockquote>
+<p>拆分非常龐大臃腫的介面成為更小的和更具體的介面，這樣客戶將會只需要知道他們感興趣的方法
+從而容易重構，更改和重新部署</p>
+</blockquote>
+<p>依賴反轉原則 Dependency inversion principle</p>
+<blockquote>
+<p>高層次的模組，不應該依賴於底層的模組，而是依賴於抽象介面；以及，抽象介面不應該依賴於具體實現。而具體實現則應該依賴於抽象介面</p>
+</blockquote>
+<p>這裡把兩個原則同時提出，以下舉出兩個例子：</p>
+<p>倘若我是資料庫的開發人員，早期階段只有磁碟機時，做出以下規劃：</p>
+<pre><code class="language-cpp">class HardDisk {
+public: 
+  void write(char* content);
+  void read(char* filename);
+  /* more member */
+}
+</code></pre>
+<p>現在，處理好了設備的處理函式，接下來實現資料庫本身的邏輯：</p>
+<pre><code class="language-cpp">class DataBase {
+public:
+  int connect(const std::string user, const std::string password);
+  void load(HardDisk disk);
+  void store(HardDisk disk);
+  /* more member */
+}
+
+// 成員可能的實作：
+void DataBase::load(HardDisk disk) {
+  /* 根據連線資訊以及查詢指令，匹配索引、資料庫、資料表等 */
+  disk.read(filename);
+}
+
+void DataBase::store(HardDisk disk) {
+  /* 建立 BTree、檢查索引、資料型別、格式化等 */
+  disk.write(content);
+}
+</code></pre>
+<p>這看起來很不錯對嗎？但是隨著時間過去，有了更多設備，比方說SSD：</p>
+<pre><code class="language-cpp">
+class SolidStateDisk {
+public: 
+  void write(char* content);
+  void read(char* filename);
+  /* more member */
+}
+
+class DataBase {
+public:
+  int connect(const std::string user, const std::string password);
+  void load(HardDisk disk);
+  void store(HardDisk disk);
+
+  // function overload
+  void load(SolidStateDisk disk);
+  void store(SolidStateDisk disk);
+  /* more member */
+}
+</code></pre>
+<p>好的，現在解決了問題，但是新的問題又出現了：SSD又分成PCIe、SATA、M.2 等介面，於是可能會新增：</p>
+<pre><code class="language-cpp">class SolidStateDisk_SATA {}
+class SolidStateDisk_PCIe {}
+class SolidStateDisk_M2 {}
+</code></pre>
+<p>而在 <code>Database</code> 類別中，則要擴充更多成員函式，這顯然會導致程式碼越來越難以維護...</p>
+<p>這時候依照<strong>依賴反轉原則</strong>：</p>
+<ul>
+<li>高層次的模組，不應該依賴於底層的模組</li>
+<li>以及，抽象介面不應該依賴於具體實現</li>
+<li>具體實現則應該依賴於抽象介面</li>
+</ul>
+<p>首先釐清高層次與底層次的模組，簡單來說，越接近應用層(或是說<em>商業邏輯</em>)，就相對高階</p>
+<blockquote>
+<p>DataBase 是高層次的；HardDisk 是低層次的</p>
+</blockquote>
+<p>其次，高階的模組不應該依賴於低層次的模組，也就是說這種設計方式是有問題的</p>
+<pre><code class="language-cpp">class DataBase {
+public:
+  int connect(const std::string user, const std::string password);
+  void load(HardDisk disk);
+  void store(HardDisk disk);
+  void load(SolidStateDisk disk);
+  void store(SolidStateDisk disk);
+  /* more member */
+}
+</code></pre>
+<p>處理的方式有很多種，但是具體來說，有個明確的目標：減少 DataBase 的依賴性</p>
+<p>可以先提出一個<strong>高階</strong>介面，且不提供具體的實現，比方說</p>
+<pre><code class="language-cpp">class IO_Device {
+public:
+  virtual void write(char* content) = 0;
+  virtual void read(char* filename) = 0;
+}
+</code></pre>
+<p>接下來，移轉高階模組的依賴：</p>
+<pre><code class="language-cpp">class DataBase {
+public:
+  int connect(const std::string user, const std::string password);
+  // 依賴於 IO_Device 介面
+  void load(IO_Device disk);
+  void store(IO_Device disk);
+
+  // void load(HardDisk disk);
+  // void store(HardDisk disk);
+  // void load(SolidStateDisk disk);
+  // void store(SolidStateDisk disk);
+  /* more member */
+}
+</code></pre>
+<p>最後，修改低階模組的宣告，使其必須實現高階介面：</p>
+<pre><code class="language-cpp">class HardDisk: public IO_Device {}
+class SolidStateDisk_SATA: public IO_Device {}
+class SolidStateDisk_PCIe: public IO_Device {}
+class SolidStateDisk_M2: public IO_Device {}
+</code></pre>
+<p>回頭來看的目標：</p>
+<ul>
+<li>高層次的模組，不應該依賴於底層的模組：DataBase 現在依賴於 <code>IO_Device</code> 之上</li>
+<li>以及，抽象介面不應該依賴於具體實現：<code>IO_Device</code>並未提供實作，而是交由底層的模組實現</li>
+<li>具體實現則應該依賴於抽象介面：<code>HardDisk</code>與<code>SolidStateDisk</code> 繼承 Pure Virtual Function <code>write</code> 與 <code>read</code></li>
+</ul>
+<p>倘若未來，想要再加入新的儲存媒介，比方說使用記憶體 <code>RAMDisk</code>：</p>
+<pre><code class="language-cpp">// 倘若未繼承 IO_Device，便無法提供給 Database類別使用
+class RAMDisk : public IO_Device {
+  // 因為繼承了 IO_Device，必須實作兩個虛擬函式
+  void write(char* content);
+  void read(char* filename);
+}
+</code></pre>
+<p>以上是一個很經典的例子，另外一個例子式 C++ 的 STL，試想一下：</p>
+<p>有許多需要操作的容器，以一維容器來說，有 <code>vector</code>、<code>list</code>、<code>queue</code>、<code>stack</code> 等</p>
+<p>假設他們都有排序的需求，實作有可能有兩種情況：</p>
+<pre><code class="language-cpp">void sort(std::vector, int startIndex, int endIndex);
+void sort(std::list, int startIndex, int endIndex);
+void sort(std::queue, int startIndex, int endIndex);
+void sort(std::stack, int startIndex, int endIndex);
+
+sort(vec, 0, vec.size() -1 );
+</code></pre>
+<p>或者是依賴於迭代器(Iterator)介面</p>
+<pre><code class="language-cpp">template&lt;typename T&gt;
+class Iterator&lt;T&gt; {
+public:
+  virtual T* begin() = 0;
+  virtual T* end() = 0;
+  virtual operator--();
+  virtual operator++();
+}
+
+/* Impl interface Iterator&lt;T&gt; */
+template&lt;typename T&gt; class std::vector&lt;T&gt; : public Iterator&lt;T&gt;{}
+template&lt;typename T&gt; class std::list&lt;T&gt; : public Iterator&lt;T&gt;{}
+template&lt;typename T&gt; class std::queue&lt;T&gt; : public Iterator&lt;T&gt;{}
+template&lt;typename T&gt; class std::stack&lt;T&gt; : public Iterator&lt;T&gt;{}
+
+// function signature
+void sort(Iterator&lt;T&gt;, Iterator&lt;T&gt;);
+
+sort(vec.begin(), vec.end());
+</code></pre>
+<p>各位可以思考看看，哪一個才是可能的實現</p>
+<p>在撰寫程式的過程中，多思考看看的介面的意義：</p>
+<ul>
+<li>使用者如何調用</li>
+<li>模組之間的依賴關係</li>
+<li>程式碼中的抽象與實現</li>
+</ul>
+<p>再提出一個例子，比方說今天我是 <em>STEAM</em> 上遊戲的開發人員，我希望我的遊戲可以下載 Plugin</p>
+<p>但是這麼多第三方人員，要如何規範他們呢？</p>
+<p>能不能提出一個基礎類別：</p>
+<pre><code class="language-ts">interface Plugin {
+  init()
+  load()
+  disable()
+}
+</code></pre>
+<p>並規範所有 Plugin 的開發人員遵守呢？</p>
+<h2 id="restful"><a class="header" href="#restful">RESTful</a></h2>
+<p>內容是參考以下網站，並根據開發人員的經驗摘要，可能會與網路上的一些資訊有出入</p>
+<p><a href="https://www.restapitutorial.com/">https://www.restapitutorial.com/</a>、<a href="https://restcookbook.com/">https://restcookbook.com/</a></p>
+<p>筆者推薦的內容，則是 Mircosoft 撰寫的<a href="https://docs.microsoft.com/zh-tw/azure/architecture/best-practices/index-best-practices">雲端應用程式中的最佳做法</a></p>
+<p>這裡先提一個懶人包： <em>API 不等於 RESTful API</em>，RESTful API 只是一種 API 風格而已，<em>不是規範</em></p>
+<h2 id="前言"><a class="header" href="#前言">前言</a></h2>
+<p>再談論 RESTful API 之前，先簡單說明一下現今的 Web App 所需的 API 會有幾個特色：</p>
+<ul>
+<li>平台獨立</li>
+<li>服務迭代</li>
+</ul>
+<p><strong>平台獨立</strong>的意思是，不論 API 的內部如何實作，都應該可以透過公開的、標準的協議進行存取</p>
+<p>好比說有個註冊帳號 API，對於客戶端來說，不必在乎他是使用什麼程式語言開發的，也不用知道使用什麼作業系統開發的</p>
+<p>只要依照某種標準協議 <code>Ex. HTTP</code>，就可以讓用戶端與Web服務進行資料交換</p>
+<p><strong>服務迭代</strong>的概念是，客戶端與服務端是分開的</p>
+<p>伺服器端的服務會不斷迭代更新並且新增功能，而隨著服務端的更新，客戶端應該要不進行修改，依然可以順利運作</p>
+<p>我認為的意義是這樣：舉例來說，今日有個訂餐系統，會上傳餐點的編號，如 <code>GHR201</code> 之類的</p>
+<p>而原先的程式設計如下：</p>
+<pre><code class="language-js">async function order(foodId) {
+  const data = await fetch(apiEndpoint, {
+    headers: { 'Content-type': 'application/json' },
+    method: 'post',
+    body: JSON.stringify({ foodId });
+  }).then(res =&gt; res.json());
+  console.log( data ) /* 內容可能為
+    {
+      foodId: 'GHR201',
+      name: '肉絲炒飯',
+      price: 60
+    }
+  */
+
+  dosomething(data) // 可能會客戶端的畫面顯示&quot;下訂成功&quot; 還有相關資訊
+}
+</code></pre>
+<p>但是假設伺服端的回應修改了，例如：</p>
+<pre><code class="language-json">{
+  &quot;uniqueId&quot;: &quot;GHR201&quot;,
+  &quot;foodName&quot;: &quot;肉絲炒飯&quot;,
+  &quot;orderTime&quot;: &quot;14:19&quot;,
+  &quot;expectTime&quot;: 1200
+}
+</code></pre>
+<p>看起來多出了 &quot;下訂的時間&quot; 與 &quot;預期送達時間&quot;，像是 14:19 下訂，20分鐘後左右會送到</p>
+<p>但是 &quot;name&quot; 欄位被移除了，修改為 &quot;foodName&quot;，這可能導致客戶端的程式無法順利運作</p>
+<p>對於伺服端來說，<strong>盡可能使得客戶端的輸入/輸出不需要額外的變動</strong>，就是服務迭代的概念</p>
+<h2 id="soap早期的api實現"><a class="header" href="#soap早期的api實現">SOAP(早期的API實現)</a></h2>
+<p>上個章節大概理清了：伺服器與客戶端需要有資料交換的機制，且最好是與實作隔離</p>
+<p>僅依賴在某種協定之上，因此早期衍生出了 SOAP(Simple Object Access Protocol)</p>
+<p>透過把 SOAP 繫結到 HTTP，同時利用了SOAP與HTTP的優點</p>
+<p>在HTTP上傳送SOAP並不意味著SOAP會覆蓋現有的HTTP語意，而是HTTP上的SOAP語意會自然地對映到HTTP語意</p>
+<p>在使用HTTP作為協定繫結的場合中，RPC請求對映到HTTP請求上，而RPC應答對映到HTTP應答。然而，在RPC上使用SOAP並不僅限於HTTP協定繫結</p>
+<p>由 SOAP 發出的請求內容可能會是：</p>
+<pre><code class="language-xml">&lt;soapenv:Envelope
+  xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+  xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+  &lt;soapenv:Body&gt;
+    &lt;req:echo xmlns:req=&quot;http://localhost:8080/wxyc/login.do&quot;&gt;
+      &lt;req:category&gt;classifieds&lt;/req:category&gt;
+    &lt;/req:echo&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+<p>而收到的回應可能會是：</p>
+<pre><code class="language-xml">&lt;soapenv:Envelope
+  xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+  xmlns:wsa=&quot;http://schemas.xmlsoap.org/ws/2004/08/addressing&quot;&gt;
+  &lt;soapenv:Header&gt;
+    &lt;wsa:ReplyTo&gt;
+      &lt;wsa:Address&gt;http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous&lt;/wsa:Address&gt;
+    &lt;/wsa:ReplyTo&gt;
+    &lt;wsa:From&gt;
+      &lt;wsa:Address&gt;http://localhost:8080/axis2/services/MyService&lt;/wsa:Address&gt;
+    &lt;/wsa:From&gt;
+    &lt;wsa:MessageID&gt;ECE5B3F187F29D28BC11433905662036&lt;/wsa:MessageID&gt;
+  &lt;/soapenv:Header&gt;
+  &lt;soapenv:Body&gt;
+    &lt;req:echo xmlns:req=&quot;http://localhost:8080/axis2/services/MyService/&quot;&gt;
+      &lt;req:category&gt;classifieds&lt;/req:category&gt;
+    &lt;/req:echo&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+<h2 id="rest"><a class="header" href="#rest">REST</a></h2>
+<p>在 2000 年時，Roy Fielding 提出了以具象狀態傳輸(REST)的架構來設計 Web 服務</p>
+<p>REST 全稱 <strong>REpresentational State Transfer</strong>，是一種<strong>設計風格</strong>，請注意，是設計風格</p>
+<p>而不是標準或是協議，相較 SOAP，REST 有幾個重要的特徵：</p>
+<ul>
+<li>Uniform Interface</li>
+<li>Stateless</li>
+<li>Cacheable</li>
+</ul>
+<p>和 SOPA 或是 XML-RPC 相比之下，REST顯得相對簡單，並且善用了 HTTP 的語意機制</p>
+<p>除此之外，也不局限於XML，JSON、YAML等格式，都可作為資源的表達</p>
+<p>重點在於 <strong>資源的表達</strong></p>
+<ul>
+<li>透過 URI 來指定存取的資源</li>
+<li>針對資源，常需要進行CRUD(Create, Read, Update, Delete)，剛好可對應到 HTTP Method</li>
+<li>通過資源的表現形式來操作資源</li>
+</ul>
+<p>大部分的實例，都會通過 HTTP 設計 REST 風格的 API，大致原則如下：</p>
+<h3 id="rest-api-是依照資源來設計"><a class="header" href="#rest-api-是依照資源來設計">REST API 是依照資源來設計</a></h3>
+<p>架設今天有查詢餐廳訂單的API，可能會是以下形式：</p>
+<pre><code class="language-sh">http://example.com/orders
+</code></pre>
+<p>並且可以透過「識別碼」，存取特定的資源</p>
+<pre><code class="language-sh">http://example.com/orders/1
+</code></pre>
+<p>並且會透過交換資源的表示法，與服務進行互動</p>
+<pre><code class="language-json">{
+    &quot;orderID&quot;:3,
+    &quot;productID&quot;:2,
+    &quot;quantity&quot;:4,
+    &quot;orderValue&quot;:16.60
+}
+</code></pre>
+<p>而統一的介面，通常指的就是 HTTP 協議，並透過常見的 HTTP Method 來分割 API
+如 GET、POST、PUT、PATCH、DELETE 等方法</p>
+<p>而 REST API 盡可能要求無狀態，所有的HTTP要求應該是獨立的，並且可能會以任何順序發生</p>
+<blockquote>
+<p>這裡不好說明&quot;無狀態的&quot;HTTP是什麼意思，因此反過來舉例包含狀態的HTTP：
+像是常見的購物車系統，今天在某個電商網站加入物品至購物車中，關閉網頁後，下次訪問還是知道購物車的內容；
+或是某個網站，如果以前登入過了，就直接導向到會員頁面，反之則是導向登入介面
+以上兩個例子，都是包含狀態性的HTTP請求</p>
+</blockquote>
+<hr />
+<p>接下來，直接看可能實作的 REST API 實例：</p>
+<p>比方說電子商務系統中，客戶與訂單的關係</p>
+<p>可以透過包含訂單資訊的 POST API 建立訂單，HTTP 回應成功與否</p>
+<pre><code class="language-sh">https://adventure-works.com/orders // Good
+
+https://adventure-works.com/create-order // Avoid
+</code></pre>
+<p>前面有提到，REST 傾向於使用 HTTP Method 描述行為，因此 URI 不應包含動詞(create-order)，應該僅包含資源</p>
+<p>要注意的事情是，REST 不是單純反映資料庫內部結構的API，最終目的在於把實體與資源模型化</p>
+<p>當然有很多REST的最佳做法，但是暫且不提，最後總結一下常用的方法與例子</p>
+<div class="table-wrapper"><table><thead><tr><th>URI</th><th>POST</th><th>GET</th><th>PUT</th><th>DELETE</th></tr></thead><tbody>
+<tr><td>/customers</td><td>建立新客戶</td><td>取得所有客戶</td><td>大量更新客戶</td><td>刪除所有用戶</td></tr>
+<tr><td>/customers/{id}</td><td>-</td><td>擷取 {id} 的客戶資料</td><td>更新 {id} 的客戶資料</td><td>刪除 {id} 的客戶資料</td></tr>
+<tr><td>/customers/{id}/order</td><td>為客戶 {id} 建立訂單</td><td>擷取 {id} 客戶的所有訂單</td><td>更新 {id} 的客戶訂單</td><td>刪除 {id} 的客戶訂單</td></tr>
+</tbody></table>
+</div>
+<p>這只是其中幾個例子，這裡建議可以看看 <a href="https://ptx.transportdata.tw/MOTC/#/CityBus">MOTC API</a>的真實案例</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sections/tools/git.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../sections/related-work/URL.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sections/tools/git.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../sections/related-work/URL.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
