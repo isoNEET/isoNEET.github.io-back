@@ -13,6 +13,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <meta property="og:title" content="isoNEET - Web 教材" />
+        <meta property="og:image" content="https://isoneet.org/isoneet.png" />
+        <meta property="og:url" content="https://isoneet.org/web-learning/index.html" />
+
+
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
@@ -424,25 +429,36 @@ git remote add origin https://github.com/foo/bar
 <li>ci: 對於CI相關設定的調整</li>
 </ul>
 <p>Header 也可能加上修改的scope，可能是功能/或是某個模組之類的</p>
-<p>範例</p>
-<pre><code class="language-text">feat($browser): add onUrlChange event (popstate/hashchange/polling)
-
-New $browser event:
-- forward popstate event if available
-- forward hashchange event if popstate not available
-- do polling when neither popstate nor hashchange available
-
-Breaks $browser.onHashChange, which was removed (use onUrlChange instead)
-</code></pre>
-<pre><code class="language-text">fix($compile): add unit tests for IE9
-
-Older IEs serialize html uppercased, but IE9 does not...
+<div id="admonition-example" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="devTools/git.html#admonition-example"></a></p>
+</div>
+<div>
+<p>feat($browser): add onUrlChange event (popstate/hashchange/polling)</p>
+<p>New $browser event:</p>
+<ol>
+<li>forward popstate event if available</li>
+<li>forward hashchange event if popstate not available</li>
+<li>do polling when neither popstate nor hashchange available</li>
+</ol>
+<p>Breaks $browser.onHashChange, which was removed (use onUrlChange instead)</p>
+</div>
+</div>
+<div id="admonition-example-1" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="devTools/git.html#admonition-example-1"></a></p>
+</div>
+<div>
+<p>fix($compile): add unit tests for IE9</p>
+<p>Older IEs serialize html uppercased, but IE9 does not...
 Would be better to expect case insensitive, unfortunately jasmine does
-not allow to user regexps for throw expectations.
-
-Closes #392
-Breaks foo.bar api, foo.baz should be used instead
-</code></pre>
+not allow to user regexps for throw expectations.</p>
+<p>Closes #392
+Breaks foo.bar api, foo.baz should be used instead</p>
+</div>
+</div>
 <p>這樣在 <code>git log --oneline</code> 時，可以清楚看到如：</p>
 <pre><code class="language-text">2d0e1ea feat($browser): add onUrlChange event (popstate/hashchange/polling)
 a2cc062 fix($compile): add unit tests for IE9
