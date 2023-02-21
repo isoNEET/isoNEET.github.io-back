@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>This 與閉包 - Web Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- HTML Meta Tags -->
+        <title>isoNEET - Web Study Note</title>
+        <meta name="description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://isoneet.org/web-learning/index.html">
+        <meta property="og:title" content="isoNEET - Web Study Note">
+        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta property="og:image" content="https://isoneet.org/isoneet.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="isoneet.org/web-learning">
+        <meta property="twitter:url" content="https://isoneet.org/web-learning/index.html">
+        <meta name="twitter:title" content="isoNEET - Web Study Note">
+        <meta name="twitter:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta name="twitter:image" content="https://isoneet.org/isoneet.png">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".././theme/mdbook-admonish.css">
+        <link rel="stylesheet" href=".././theme/catppuccin.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 語法速覽</a></li><li class="chapter-item expanded "><a href="../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 深入型別系統</a></li><li class="chapter-item expanded "><a href="../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 物件與類別</a></li><li class="chapter-item expanded "><a href="../javascript/This.html" class="active"><strong aria-hidden="true">3.4.</strong> This 與閉包</a></li><li class="chapter-item expanded "><a href="../javascript/Engine.html"><strong aria-hidden="true">3.5.</strong> JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../javascript/Asynchronous.html"><strong aria-hidden="true">3.6.</strong> 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../javascript/Common-skill.html"><strong aria-hidden="true">3.7.</strong> 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../javascript/Conclusion.html"><strong aria-hidden="true">3.8.</strong> 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sections/related-work/HTTP.html"><strong aria-hidden="true">4.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../sections/related-work/URL.html"><strong aria-hidden="true">4.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../sections/related-work/API.html"><strong aria-hidden="true">4.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Web Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="this-變數"><a class="header" href="#this-變數">This 變數</a></h1>
+<p>在該章節之前, 要先提及嚴格模式 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a></p>
+<div id="admonition-quote" class="admonition quote">
+<div class="admonition-title">
+<p>Quote</p>
+<p><a class="admonition-anchor-link" href="#admonition-quote"></a></p>
+</div>
+<div>
+<p>提供開發者語法嚴格、語法受限的模式 (strict mode)</p>
+<p>會影響語法的使用但沒支援受限模式的瀏覽器一樣可以跑, 只是行為有很大的可能會跟你想的不一樣</p>
+<p>所以別太依賴受限模式, 除非你做過功能性測試</p>
+<p>另外這個模式可以混用在普通模式裡, 你可以利用這個特性慢慢把舊的程式碼轉變成完全嚴謹和低變化性的狀態</p>
+</div>
+</div>
+<p>嚴格模式通常會直接在腳本的第一行撰寫 <code>use &quot;strict&quot;;</code> 啟動, 嚴格模式可以參考MDN的說明</p>
+<ol>
+<li>透過拋出錯誤的方式消除一些安靜的錯誤（意指不再靜默地忽略某些錯誤）</li>
+<li>修正會阻礙 JavaScript 引擎進行最佳化的錯誤: 相同的程式碼在嚴格模式有時候能運行得比非嚴格模式來的快</li>
+<li>禁止使用一些有可能被未來版本 ECMAScript 定義的語法</li>
+</ol>
+<p>在開發WEB應用時, 基本上是一定會加上的, 因為他會使JavaScript的行為更接近現代化的程式語言</p>
+<h2 id="關於-this"><a class="header" href="#關於-this">關於 This</a></h2>
+<div id="admonition-quote-1" class="admonition quote">
+<div class="admonition-title">
+<p>Quote</p>
+<p><a class="admonition-anchor-link" href="#admonition-quote-1"></a></p>
+</div>
+<div>
+<p>this 值由被呼叫的函式來決定。它不能在執行期間被指派, 每次函式呼叫調用的值也可能不同</p>
+<p>this是一個特殊的值, 無法於執行期間被覆蓋</p>
+</div>
+</div>
+<p>對於一般的function, 查找this的範圍會從調用者(caller)往上查找：</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+let obj = {
+  prop: 300,
+  fn: function() {
+    return this.prop;
+  }
+}
+
+function outerFn() {
+  return this.prop;
+}
+
+obj.fn() // 300;
+
+obj.fn2 = outerFn;
+
+obj.fn2() // 300, 因為此時 outerFn 繫結於 obj 的成員位址
+
+outerFn() // Error, this 並沒有 prop 這個成員
+</code></pre>
+<p><code>this</code>的判斷, 是先依照是不是作為某個物件的屬性或方法被調用</p>
+<p>在上述的例子中, 因為 <code>outerFn</code> 是直接以一個 function 被調用, 而不是某個物件底下的方法, 所以 <code>this</code> 的值為 <code>undefined</code></p>
+<p>但經過 <code>obj.fn2</code> 指向 <code>outerFn</code>, 此時 <code>obj.fn2</code> 同樣是調用 <code>outerFn</code>, 但是是以 <code>obj</code>的成員被調用</p>
+<p>因此 <code>this</code> 的值相當於 <code>obj</code></p>
+<div id="admonition-tip" class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+<p><a class="admonition-anchor-link" href="#admonition-tip"></a></p>
+</div>
+<div>
+<p><code>this</code> 的查找優先以上層物件的調用為主</p>
+</div>
+</div>
+<p>舉例來說：</p>
+<pre><code class="language-js">function fn() {
+  return this.prop;
+}
+
+let obj = {
+  prop: 100,
+  foo: fn,
+  sub: {
+    prop: 200,
+    foo: fn
+  }
+}
+
+obj.foo();  // 100, 因為此時是以 &quot;obj&quot; 的成員被調用, this = obj.sub
+
+obj.sub.foo();  // 200, 因為此時是以 &quot;obj.sub&quot; 的成員被調用, this = obj.sub
+
+// 修改obj.sub為
+obj.sub = {
+  foo: fn
+}
+obj.sub.foo() // undefined, 此時同樣以 &quot;obj.sub&quot; 的成員被調用, 但是 obj.sub 已經不存在 prop 屬性了
+
+obj.sub.__proto__.prop = 300;
+obj.sub.foo() // 300, 最直接的引用是 obj.sub, 該物件沒有prop成員, 但是原型鏈(__proto__)存在prop成員
+
+</code></pre>
+<div id="admonition-danger" class="admonition danger">
+<div class="admonition-title">
+<p>Danger</p>
+<p><a class="admonition-anchor-link" href="#admonition-danger"></a></p>
+</div>
+<div>
+<p>在上述的例中, 通過 <strong>proto</strong> 屬性直接修改一個物件的原型(Prototype)</p>
+<p>但真正開發中, 直接改變物件的原型是一件很不建議的事情, 同時也會影響到所有參照原型的實例</p>
+</div>
+</div>
+<h2 id="閉包與-arrow-function"><a class="header" href="#閉包與-arrow-function">閉包與 arrow function</a></h2>
+<p>箭頭函數(arrow function), 也被叫作 &quot;Lambda&quot; 表達式, 其表示法如下</p>
+<pre><code class="language-js">// ex.1
+const sum = (a, b) =&gt; {
+  return a + b;
+};
+
+// ex.2 當 `=&gt;` 後接的是 expression 時, 可以當作回傳值
+const sum = (a, b) =&gt; a + b // 行為同 ex.1
+
+// ex.3
+const sayHello = (name) =&gt; `Hello, ${name}`
+
+// ex.4
+const sayHello = name =&gt; `Hello, ${name}` // 只有一個參數時, 可以省略()
+
+// ex.5
+const returnObj = ( user ) =&gt; ({
+  name: user.first + ' ' + user.last,
+  age: user.age,
+})
+
+// 倘若使用 user =&gt; {}, 此時的 {} 會被視作 block statement, 使用 ({}) 則視為 object expression
+</code></pre>
+<p><strong>this</strong>對於一般函數來說, this 有幾種可能值：</p>
+<ul>
+<li>作為 new 建構子來說, this指向物件本身</li>
+<li>對於strict mode下直接調用函式, 函式中的 this 是 <code>undefined</code></li>
+<li>作為物件的方法呼叫時, 參考至物件上</li>
+</ul>
+<p>而 arrow function <code>() =&gt; {}</code> 的行為, 是基於詞法域(lexical), 而非語法語境(context)</p>
+<div id="admonition-info" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="#admonition-info"></a></p>
+</div>
+<div>
+<p>更簡潔的說法是, arrow function 不會為自己的 block 繫結 this 的值</p>
+</div>
+</div>
+<p><strong>function a() {}</strong> 以及 <strong>let a = () =&gt; {}</strong> 絕對是不同的東西</p>
+<p>在一些前端框架, 如 <code>React</code>v15 之前或是 <code>Vue</code> 開發的時候, 官方會強調, 何時一定要使用 <code>function</code>, 而不能用 <code>arrow function</code> 代替</p>
+<pre><code class="language-js">function Person() {
+  this.age = 1;
+
+  setInterval(function growUp(){
+    this.age++; // 錯誤, 因為 setInterval 的調用不是由 Person 的instance 執行, 是由瀏覽器進行排程
+    // 通常為 undefined, 非嚴格模式下為 window
+  });
+}
+
+// solution
+function Person() {
+  this.age = 1;
+  const self = this;
+  setInterval(function growUp(){
+    self.age++; // 正確運作, 先用 self 把 this 的位址保存下來, 並透過閉包傳遞
+  });
+}
+
+// solution 2
+function Person() {
+  this.age = 1;
+  setInterval(() =&gt; {
+    this.age++ // 正確, 因為arrow function 的 this 是基於詞法域的
+    console.log(this.age)
+  })
+}
+</code></pre>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>要快速釐清 arrow function 與 一般 function 的使用時機時：</p>
+<p>使用 <code>function() {}</code> 宣告的時機：</p>
+<ol>
+<li>在物件中, 方法要參照物件本身</li>
+<li>在類別中, 宣告成員函式的情景</li>
+<li>使用到 Generator <code>function*</code> 的情況</li>
+<li>使用 arguments 的情況</li>
+</ol>
+<p>除此之外, 都可以直接使用<code>() =&gt; {}</code> Arrow Function 的形式來宣告函式</p>
+<p>但原則上來說, 盡可能使用展開運算替代arguments, 因此動態參數的情況, 也可以使用 arrow function</p>
+</div>
+</div>
+<pre><code class="language-js">&quot;use strict&quot;;
+let id = &quot;ID-Global&quot;
+let obj = {
+    id: &quot;ID-Object&quot;,
+    fn1: function () {
+        console.log(this.id, &quot;in&quot; , this);
+    },
+    fn2: () =&gt; {
+        console.log(this.id, &quot;in&quot;, this);
+    },
+    inter: {
+      fn1: function () {
+        console.log(this.id, &quot;in&quot; , this);
+      },
+      fn2: () =&gt; {
+          console.log(this.id, &quot;in&quot;, this);
+      }
+    }
+}
+
+obj.fn1(); // 會印出 `ID-Object` in obj 中
+obj.fn2(); // 會印出 `undefined` in window 中
+obj.inter.fn1(); // 會印出 `undefined` in obj.inter 中
+obj.inter.fn2(); // 會印出 `undefined` in window 中
+</code></pre>
+<p>以此例來說, <code>fn1</code> 使用 normal function 進行宣告, 因此 this 的值參照到 obj 上；</p>
+<p><code>fn2</code> 使用 arrow function 宣告, 此處的 <code>obj.fn2</code> 與 <code>obj.inter.fn2</code> 的宣告, 因為使用 <code>Object literal</code></p>
+<p>此時的obj的定義是在 <code>window</code> 物件下；而 <code>obj.fn1</code> 與 <code>obj.inter.fn1</code> 分別參照宣告的物件, 所以分別是 <code>obj</code> 與 <code>obj.inter</code></p>
+<pre><code class="language-js">&quot;use strict&quot;;
+let outFn;
+new (function() {
+    this.data = 30;
+    
+    let fn1 = function () {
+      console.log(&quot;fn1: this is&quot;,this);
+    }
+
+    let fn2 = () =&gt; {
+      console.log(&quot;fn2: this is&quot;, this);
+    }
+
+    fn1();
+    fn2();
+    outFn = fn2;
+});
+outFn();
+</code></pre>
+<p>這個例子中, 揭露了 <code>constructor</code> 與 <code>Object literal</code> 的微妙差異：</p>
+<p>此例中, fn1 並不是作為特定物件的方法調用, 因此 fn1 下的 this 為 <code>undefined</code></p>
+<p>反之, fn2 使用 arrow function, 參照的是宣告時的位置, 對應到的部分是匿名函數的內部, 因此該處的 this 會顯示 <code>{ data: 30 }</code></p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+class Example {
+  constructor() {
+    this.data = &quot;Example Data&quot;;
+    this.fn1 = function () {
+      console.log(this);
+    }
+
+    this.fn2 = () =&gt; {
+      console.log(this);
+    }
+  }
+}
+
+class FunctionTrigger {
+  constructor() {
+    this.data = &quot;FunctionTrigger&quot;;
+  }
+
+  invoke(fn, extraMessage) {
+    console.group(&quot;Invoke&quot;);
+    console.log(extraMessage);
+    fn();
+    console.groupEnd();
+  }
+}
+
+const example = new Example;
+const ft = new FunctionTrigger;
+example.fn1();                                    // -- stmt1
+example.fn2();                                    // -- stmt2
+ft.invoke(example.fn1, &quot;Try invoke example.fn1&quot;); // -- stmt3
+ft.invoke(example.fn2, &quot;Try invoke example.fn2&quot;); // -- stmt4
+</code></pre>
+<p>這又是另外一個例子, 當 fn1 與 fn2 作為 example 的方法調用時, 都會順利顯示 <code>this.data = &quot;Example Data&quot;</code></p>
+<p>但在 <code>stmt3</code> 中, example.fn1 作為函式傳入 ft.invoke 中在調用, 此時失去了 example 這個參照,  this 的值會是 <code>undefined</code></p>
+<p>在 <code>stmt4</code> 中, example.fn2 即使作為函式傳入 ft.invoke 中在調用, this依然繫結在 <code>example</code> 上</p>
+<div id="admonition-note-1" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<div>
+<p>在 JavaScript, 函式本來就有提供 <code>bind</code> 與 <code>apply</code> 兩種原型方法, 用來繫結<code>this</code> 當下值, 其行為如同上一章節 C++ 的 <code>std::bind</code></p>
+<p>此例中, 可以把 <code>stmt3</code> 改成 <code>ft.invoke(example.fn1.bind(example), &quot;Try invoke example.fn1&quot;);</code> 再次調用觀察</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype</a></p>
+<p><code>Function.prototype.bind</code> 與 <code>Function.prototype.apply</code> 回傳結果是一個 <code>function</code></p>
+<p>example.fn1.call(example) 則是把 example 當作 this 的值直接調用</p>
+<p>arrow function 不可使用 <code>bind</code>, <code>apply</code>, <code>call</code> 三種方法, 因為其上不存在</p>
+</div>
+</div>
+<h2 id="閉包語法域與詞法域"><a class="header" href="#閉包語法域與詞法域">閉包、語法域與詞法域</a></h2>
+<p>通俗的解釋, 語法域代表的是執行期間動態決定的行為, 比方說普通函式的<code>this</code>、建構式的<code>super</code></p>
+<p>而詞法域代表的是封閉範圍的前後文, 如同變數的查找一樣, 舉例來說：</p>
+<pre><code class="language-js">{                     // -- block 1
+  let a = 100;
+  let b = 200;
+  {                   // -- block 2
+    let c = 300;
+    function fn() {   // -- block 2.1
+      console.log(a, b, c);
+    }
+    fn() // 100, 200, 300
+  }
+  {                   // -- block 3
+    function fn() {   // -- block 3.1
+      console.log(a, b, c);
+    }
+    fn() // 錯誤, c 不存於該 block 3.1 以及 block 3
+  }
+}
+</code></pre>
+<p><code>a, b</code> 在同一個 block, 而 <code>c</code> 在的block可以看到外部(block 1)</p>
+<p>所以第一個 block 2 可以看到 a,b,c, 但是第二個僅能看到 a,b</p>
+<p>這就是詞法域(其行為依照原始碼的樣子), 比較編譯器領域的說法是：<code>Token 被宣告的位置</code></p>
+<p>而閉包則複雜一點, 以上面的例子來說, 可以觀察出：</p>
+<ul>
+<li>block 允許巢狀</li>
+<li>內部的 block 可以存取外部的 block</li>
+<li>外部的 block 不可以存取內部的 block</li>
+</ul>
+<p>閉包的概念, 就如透過 <code>function</code>, 把內部的變數帶出去外面：</p>
+<pre><code class="language-js">function closure(initValue) {
+  let sum = initValue;
+  return function(num) {
+    sum += num;
+    return sum;
+  }
+}
+
+const sigmaFn = closure(0);
+sigmaFn(100); // 100
+sigmaFn(100); // 200
+sigmaFn(100); // 300
+</code></pre>
+<p>首先定義了 <code>closure</code>, 僅允許傳入參數來初始化 sum</p>
+<p>並回傳一個 <code>function</code>, 可以傳入數字來遞增 sum</p>
+<p>每一次呼叫 <code>sigma</code>, 都會遞增 sum 的值, 這看起來似乎沒有什麼特別, 但是稍微修改一下：</p>
+<pre><code class="language-js">function closure(initValue) {
+  let sum = initValue;
+  return {
+    add: function(num) {
+      sum += num;
+      return sum;
+    }
+  }
+}
+
+const calc = closure(100);
+calc.add(20);
+calc.add(30);
+</code></pre>
+<p>把回傳值改為物件, 並包含了sum值, 這有兩個很特殊的作用：</p>
+<ul>
+<li>在回傳的物件中, 不需要用到 <code>this</code></li>
+<li>無法透過 calc 直接存取 sum, 只能透過<code>add</code>來存取</li>
+</ul>
+<p>在早期沒有arrow function時, 閉包可以很好的處理this的context, 而第二點則至關重要：封閉了sum的直接修改, 僅允許公開的方法存取</p>
+<p>這個行為, 就像是把 sum 定義為 <em>private</em> 成員, add 定義為 <em>public</em> 成員, 透過閉包, 模擬出物件導向的行為</p>
+<p>現在閉包用法則是比較偏向第二點, 因為this已經有arrow function跟 class 關鍵字協助處理了</p>
+<p>通常會使用閉包來移轉內部資料的所有權到外部</p>
+<p>另外一個層面是, 閉包可以很好的處理早期 <code>var</code> 宣告的問題(請見 <a href="./Syntax.html#let-%E8%88%87-var-%E5%AE%A3%E5%91%8A%E8%AE%8A%E6%95%B8">語法速覽</a>), 而UMD模組載入模式, 也會看到閉包的使用</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../javascript/Object.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../javascript/Engine.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../javascript/Object.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../javascript/Engine.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

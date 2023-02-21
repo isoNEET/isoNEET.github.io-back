@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JavaScript引擎架構 - Web Study Notes</title>
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- HTML Meta Tags -->
+        <title>isoNEET - Web Study Note</title>
+        <meta name="description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://isoneet.org/web-learning/index.html">
+        <meta property="og:title" content="isoNEET - Web Study Note">
+        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta property="og:image" content="https://isoneet.org/isoneet.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="isoneet.org/web-learning">
+        <meta property="twitter:url" content="https://isoneet.org/web-learning/index.html">
+        <meta name="twitter:title" content="isoNEET - Web Study Note">
+        <meta name="twitter:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta name="twitter:image" content="https://isoneet.org/isoneet.png">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".././theme/mdbook-admonish.css">
+        <link rel="stylesheet" href=".././theme/catppuccin.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 語法速覽</a></li><li class="chapter-item expanded "><a href="../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 深入型別系統</a></li><li class="chapter-item expanded "><a href="../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 物件與類別</a></li><li class="chapter-item expanded "><a href="../javascript/This.html"><strong aria-hidden="true">3.4.</strong> This 與閉包</a></li><li class="chapter-item expanded "><a href="../javascript/Engine.html" class="active"><strong aria-hidden="true">3.5.</strong> JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../javascript/Asynchronous.html"><strong aria-hidden="true">3.6.</strong> 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../javascript/Common-skill.html"><strong aria-hidden="true">3.7.</strong> 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../javascript/Conclusion.html"><strong aria-hidden="true">3.8.</strong> 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sections/related-work/HTTP.html"><strong aria-hidden="true">4.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../sections/related-work/URL.html"><strong aria-hidden="true">4.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../sections/related-work/API.html"><strong aria-hidden="true">4.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Web Study Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="javascript-架構"><a class="header" href="#javascript-架構">JavaScript 架構</a></h1>
+<p>本章節, 從非同步程式的概念開始, 假設有個程式這樣寫：</p>
+<pre><code class="language-js">const arr = [];
+arr.push(1);
+arr.push(2);
+arr.push(3);
+arr.push(4);
+console.log(arr) // [1,2,3,4]
+</code></pre>
+<p>在這個例子中, 程式碼都是由上到下執行, 因此很好預測執行結果</p>
+<p>但如果程式碼改成以下模式：</p>
+<pre><code class="language-js">const arr = []
+let fileA = download(urlA);
+
+let fileB = download(urlB);
+
+let fileC = download(urlC);
+
+while( !(fileA.done &amp;&amp; fileB.done &amp;&amp; fileC.done) ) {
+  if(fileA.done &amp;&amp; !fileA.lock) {
+    arr.push(fileA.content);
+    fileA.writeLock();
+  }
+  if(fileB.done &amp;&amp; !fileB.lock) {
+    arr.push(fileB.content);
+    fileB.writeLock();
+  }
+  if(fileC.done &amp;&amp; !fileC.lock) {
+    arr.push(fileC.content);
+    fileC.writeLock();
+  }
+}
+</code></pre>
+<p>假設<code>download</code>程式碼, 可以下載某個URL提供的資料, 並且分別用 <code>done</code> 表示下載完成, 以及 <code>content</code> 表示下載的內容</p>
+<p>此例進行下載三個網站的內容, 並不斷檢測是否下載完成；如果有任何網站還未下載完成, 就不會離開迴圈</p>
+<p>迴圈會依序檢查A、B、C的內容, 若下載完成, 把資料放入<code>arr</code>中, 並且上鎖防止重複寫入</p>
+<div id="admonition-question" class="admonition question">
+<div class="admonition-title">
+<p>Question</p>
+<p><a class="admonition-anchor-link" href="#admonition-question"></a></p>
+</div>
+<div>
+<p><code>arr</code> 中資料的順序為何?</p>
+</div>
+</div>
+<p>答案是不確定</p>
+<p>可以改成： <code>arr[0] = fileA.content</code> 這種做法來確定資料的順序, 但是當資料列表變大的情境, 要處理的細節就會越來越多</p>
+<p>或是操作順序有時序性：需要先登入銀行、然後才能操作帳戶</p>
+<p>當操作的步驟越來越繁瑣, 卻又需要知道式健順序, 無法確定API回傳順序時 - 在網路世界中, 程式的執行順序, 不等同於資料的取得順序</p>
+<h2 id="javascript-引擎架構"><a class="header" href="#javascript-引擎架構">JavaScript 引擎架構</a></h2>
+<p><img src="./images/js-v8.png" alt="v8" /></p>
+<p>模擬一個情境：</p>
+<p>在 C++ 中, 可能使用 <code>cin</code> 或是 <code>scanf</code> 來得到使用者的輸入, 程式碼如下：</p>
+<pre><code class="language-cpp">cin &gt;&gt; num;
+cout &lt;&lt; &quot;Hello, world&quot; &lt;&lt; endl;
+</code></pre>
+<p>cin 會嘗試取得使用者輸入, 然後輸出 &quot;Hello, world&quot;。但是使用者輸入之前, 畫面是<strong>不會</strong>繼續渲染的, 這在交互式的 command interface 不是問題</p>
+<p>但是到了 GUI 卻相當嚴重, 比方說登入頁面, 在你輸入帳號、密碼之前, 畫面上其他部分都停止繪製, 這不是一個好的體驗</p>
+<p>因此瀏覽器採用&quot;事件驅動&quot;, 透過觀察者模式 <em>(設計模式的一種, 不贅述)</em>, 等待用戶發出的事件, 並進行響應</p>
+<pre><code class="language-html">&lt;button onclick=&quot;alert('My name is Alex')&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<p>當點下按鈕後, 會push <code>clickEvent</code> 至事件佇列(Event Queue), 圖中的 EventLoop, 是一個無窮迴圈, 會不斷檢查Event Queue, 若裡頭有資料, 生成Task給後面的執行緒池</p>
+<p><code>Task Queue</code> 紀錄等待執行的工作, 由後方的Worker取出後執行, 完成後調用註冊的 Handler</p>
+<p>這就是關鍵所在, 因為不知道使用者何時輸入/點擊畫面, 因此需要用某種機制來控制渲染的執行緒、網路請求執行緒、JS執行緒, 讓所有元件在正確的時間點運作</p>
+<p>有了這個概念, 再追加補充：JavaScript有分成 <code>main thread</code> 與 <code>job thread</code>(或者說是 worker, task thread), 而所有的非同步事件會先扔至 <code>job thread</code>, 靜待瀏覽器調用</p>
+<p>比方說 <code>setTimeout(fn, ms)</code>, 接受一個function和毫秒的數值, 就會在 N 毫秒後調用該方法</p>
+<pre><code class="language-js">setTimeout(() =&gt; console.log('test'), 1000) // 1秒後印出 'test'
+</code></pre>
+<p>可能實現的原理如下：</p>
+<ol>
+<li>瀏覽器會初始化一個 timer, 紀錄經過的毫秒數</li>
+<li>呼叫<code>setTimeout</code>時, 放置一個事件在 <code>job thread</code></li>
+<li>每次 Eventloop 的週期, 當<code>main thread</code>的工作清空後, 檢查<code>job thread</code></li>
+<li>如果<code>job thread</code>裡面有事件, 檢查註冊的時戳, 並比較<code>current - reg_timestamp</code>是否逾時</li>
+<li>如果上述為真, 代表事件應該要執行了, 調用</li>
+<li>回到步驟3</li>
+</ol>
+<p>比方說設定了 <code>setTimeout(fn, 1000)</code>, 當時戳相減超過 1000時 , 調用 fn</p>
+<p>假設有個情境如下：要輸出1 ~ 5, 每一秒輸出一個數字, 程式設計如下：</p>
+<pre><code class="language-js">setTimeout(() =&gt; console.log(1), 1000);
+setTimeout(() =&gt; console.log(2), 2000);
+setTimeout(() =&gt; console.log(3), 3000);
+setTimeout(() =&gt; console.log(4), 4000);
+setTimeout(() =&gt; console.log(5), 5000);
+</code></pre>
+<p>這時候, &quot;好像&quot;跟預期的一樣：</p>
+<p>首先, 如何證明<code>main thread結束後, 才會執行job thread的工作</code>？</p>
+<p>證明如下：<code>setTimeout</code>會把事件放入job thread, 首先設定<code>setTimeout(fn, 0)</code>;</p>
+<pre><code class="language-js">let arr = [];
+setTimeout(() =&gt; arr.push(1), 0); // Enqueue - job thread
+setTimeout(() =&gt; arr.push(2), 0); // Enqueue - job thread
+setTimeout(() =&gt; arr.push(3), 0); // Enqueue - job thread
+arr.push(4) // main thread
+console.log(arr) // [4, 1, 2, 3]
+</code></pre>
+<p>該程式碼揭露的：因為前面三次push是放在<code>job thread</code>的, 因此狀況就好像：</p>
+<pre><code class="language-js">JobThread = [fn, fn, fn];
+MainThread = [fn];
+</code></pre>
+<p>必須等到 <code>MainThread</code> 清空後, 才會依序執行 <code>job thread</code> 內的工作</p>
+<div id="admonition-info" class="admonition info">
+<div class="admonition-title">
+<p>Info</p>
+<p><a class="admonition-anchor-link" href="#admonition-info"></a></p>
+</div>
+<div>
+<p><code>setTimeout</code> 與 <code>setInterval</code>：</p>
+<ol>
+<li>setTimeout - 經過<strong>至少</strong>多少毫秒後, 應該調用 function</li>
+<li>setInterval - 每隔<strong>至少</strong>多少毫秒後, 應該調用 function</li>
+</ol>
+</div>
+</div>
+<div id="admonition-example" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="#admonition-example"></a></p>
+</div>
+<div>
+<p>下方的例子, 通過程式實驗, 揭露了 setTimeout 與 setInterval 的實現</p>
+</div>
+</div>
+<p>首先定義基準時間：</p>
+<p><img src="./images/timer.png" alt="timer" /></p>
+<!-- markdownlint-disable MD033 -->
+<p>在筆者的電腦上, 執行 3 * 10<sup>9</sup>次 空迴圈大約耗時 1500ms, 接下來分別推入5個事件到<code>job thread</code>中：</p>
+<p>使用 <code>performance.now</code>用來取得分頁開啟後的累積時間, 並透過 <code>setTimeout</code> 放入 <code>job thread</code></p>
+<p><img src="./images/timer2.png" alt="timer2" /></p>
+<p>定義 <code>diffTime</code>：計算陣列前後項的時間差, 相當於是 <code>setTimeout</code> 放入時戳的間隔</p>
+<p>首先定義五個 job, 都是放入一個時戳到<code>timestamps[]</code>中, 最後手動呼叫 <code>diffTime</code></p>
+<p>可以看到每一次的時間間隔大概是 90~100ms 左右</p>
+<p>接下來設計一個實驗：</p>
+<pre><code class="language-js">function diffTime(arr) {
+  for(let i = 0; i &lt; arr.length - 1 ; ++i) {
+    console.log(`time pass: ${arr[i+1] - arr[i]} ms`);
+  }
+}
+
+// 放入5個 Task 到 job thread 中
+let timestamps = [];
+setTimeout(() =&gt; { timestamps.push(performance.now())}, 100);
+setTimeout(() =&gt; { timestamps.push(performance.now())}, 200);
+setTimeout(() =&gt; { timestamps.push(performance.now())}, 300);
+setTimeout(() =&gt; { timestamps.push(performance.now())}, 400);
+setTimeout(() =&gt; { timestamps.push(performance.now())}, 500);
+
+// 使用 for-loop, 阻塞 main thread 1500ms 左右
+console.time(&quot;timer&quot;)
+for(let i = 0 ; i &lt; 3 * 1e9 ; ++i) {}
+console.timeEnd(&quot;timer&quot;)
+
+// diffTime(timestamps) 最後手動呼叫, 查看每個元素被放入的時間差
+</code></pre>
+<div style="display:flex; justify-content: center;">
+  <img src="./images/timer3.png" />
+</div>
+<p>這個結果的意義：</p>
+<ul>
+<li>假定在 <code>t0</code> 的時候執行腳本</li>
+<li>分別設定事件：放入時戳到 <code>timestamps</code> 中, 分別在 <code>t0 + (100 * i)ms</code> 的5個時間點調用<code>push</code>(i 表示第 i 個事件)</li>
+<li>程式繼續執行繼續往下, 使用 <code>for-loop</code> 阻塞 <code>main thread</code> 1492ms</li>
+<li>對瀏覽器來說, 在 <code>t0 + 1492ms</code> 的時間點後, <code>main thread</code> 的所有任務結束</li>
+<li>此時檢查 <code>job thread</code> 中的 task, 5 個 Task 都逾時了</li>
+<li>依序執行 5 個 Task</li>
+</ul>
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<div>
+<p>唯有當 main thread 執行結束後, 才會執行job thread 中的Task</p>
+</div>
+</div>
+<p>另外還有兩個單純的測試方法：</p>
+<p>首先執行, 會看到大約每間隔一秒, 畫面會輸出一個數字</p>
+<pre><code class="language-js">setTimeout(() =&gt; console.log(1), 1000);
+setTimeout(() =&gt; console.log(2), 2000);
+setTimeout(() =&gt; console.log(3), 3000);
+setTimeout(() =&gt; console.log(4), 4000);
+setTimeout(() =&gt; console.log(5), 5000);
+</code></pre>
+<p>接下來改成執行：</p>
+<pre><code class="language-js">setTimeout(() =&gt; console.log(1), 1000);
+setTimeout(() =&gt; console.log(2), 2000);
+setTimeout(() =&gt; console.log(3), 3000);
+setTimeout(() =&gt; console.log(4), 4000);
+setTimeout(() =&gt; console.log(5), 5000);
+window.alert('block!');
+</code></pre>
+<p><code>alert</code> 會跳出一個提示框, 他會強制阻塞<code>main thread</code>, 等到5秒後把提示框給點掉</p>
+<p><img src="./images/alert.png" alt="alert" /></p>
+<p>然後再看看 <code>console.log</code> 的輸出, 會發現1~5會<strong>同時</strong>輸出；</p>
+<p>另一個簡單的作法：</p>
+<pre><code class="language-js">while(true) {}
+setTimeout(() =&gt; console.log(), 0); // 永不執行, 因為 main thread 被 while-loop 永遠阻塞
+</code></pre>
+<h2 id="關於-settimeout-或-setinterval"><a class="header" href="#關於-settimeout-或-setinterval">關於 setTimeout 或 setInterval</a></h2>
+<p>前述的例子中, 有點像是證明 <code>main thread</code> 與 <code>job thread</code> 的關係, 如果只是證明：setTimeout和setInterval 是至少 N 毫秒後執行</p>
+<p>可以透過 console.time 和 console.timeEnd 兩組函數, 觀測瀏覽器回傳的時間差異</p>
+<p><img src="./images/timer4.png" alt="alert" /></p>
+<p>如圖所示, 計時開始與結束的時間是 1019ms, 實際上與 1000ms 還是有一點誤差</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../javascript/This.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../javascript/Asynchronous.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../javascript/This.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../javascript/Asynchronous.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

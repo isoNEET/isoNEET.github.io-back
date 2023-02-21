@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="zh-TW" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -12,14 +12,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <meta property="og:title" content="isoNEET - Web 教材" />
-        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程，並且還會介紹一些相關工具的使用" />
-        <meta property="og:image" content="https://isoneet.org/isoneet.png" />
-        <meta property="og:image:width" content="1920" />
-        <meta property="og:image:height" content="1080" />
-        <meta property="og:url" content="https://isoneet.org/web-learning/index.html" />
-        
-        <meta property="twitter:card" content="summary_large_image"> 
+        <!-- HTML Meta Tags -->
+        <title>isoNEET - Web Study Note</title>
+        <meta name="description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://isoneet.org/web-learning/index.html">
+        <meta property="og:title" content="isoNEET - Web Study Note">
+        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta property="og:image" content="https://isoneet.org/isoneet.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="isoneet.org/web-learning">
+        <meta property="twitter:url" content="https://isoneet.org/web-learning/index.html">
+        <meta name="twitter:title" content="isoNEET - Web Study Note">
+        <meta name="twitter:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta name="twitter:image" content="https://isoneet.org/isoneet.png">
 
         <link rel="icon" href="../../favicon.svg">
         <link rel="shortcut icon" href="../../favicon.png">
@@ -38,8 +47,8 @@
         <link rel="stylesheet" href="../../ayu-highlight.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../.././mdbook-admonish.css">
-        <link rel="stylesheet" href="../../././mdbook-admonish.css">
+        <link rel="stylesheet" href="../.././theme/mdbook-admonish.css">
+        <link rel="stylesheet" href="../.././theme/catppuccin.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
@@ -93,7 +102,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../../javascript/Architecture.html"><strong aria-hidden="true">3.4.</strong> 4. JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../../javascript/Asynchronous.html"><strong aria-hidden="true">3.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../javascript/Common-skill.html"><strong aria-hidden="true">3.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../javascript/Conclusion.html"><strong aria-hidden="true">3.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">TypeScript</li><li class="chapter-item expanded "><a href="../../typescript/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li class="chapter-item expanded affix "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">5.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html" class="active"><strong aria-hidden="true">5.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">5.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 語法速覽</a></li><li class="chapter-item expanded "><a href="../../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 深入型別系統</a></li><li class="chapter-item expanded "><a href="../../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 物件與類別</a></li><li class="chapter-item expanded "><a href="../../javascript/This.html"><strong aria-hidden="true">3.4.</strong> This 與閉包</a></li><li class="chapter-item expanded "><a href="../../javascript/Engine.html"><strong aria-hidden="true">3.5.</strong> JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../../javascript/Asynchronous.html"><strong aria-hidden="true">3.6.</strong> 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../../javascript/Common-skill.html"><strong aria-hidden="true">3.7.</strong> 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../../javascript/Conclusion.html"><strong aria-hidden="true">3.8.</strong> 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sections/related-work/HTTP.html"><strong aria-hidden="true">4.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/URL.html" class="active"><strong aria-hidden="true">4.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../../sections/related-work/API.html"><strong aria-hidden="true">4.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -111,11 +120,15 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -155,14 +168,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="url"><a class="header" href="#url">URL</a></h1>
-<p>在討論 URL 之前，先來看常見的三個定義：</p>
+<p>在討論 URL 之前, 先來看常見的三個定義：</p>
 <ul>
-<li>URI - Uniform Resource Identifier，意指用於標識某一網際網路資源名稱的字串</li>
-<li>URL - Uniform Resource Locator，俗稱網頁位址，簡稱網址，是網際網路上標準的資源的位址</li>
-<li>URN - Uniform Resource Name，期望為資源提供持久的、位置無關的標識方式</li>
+<li>URI - Uniform Resource Identifier, 意指用於標識某一網際網路資源名稱的字串</li>
+<li>URL - Uniform Resource Locator, 俗稱網頁位址, 簡稱網址, 是網際網路上標準的資源的位址</li>
+<li>URN - Uniform Resource Name, 期望為資源提供持久的、位置無關的標識方式</li>
 </ul>
-<p>大概可以理解為 URI = URL + URN，這裡不深入探討三者的差異</p>
-<p>但是以現今的用法來說，URI 可以看作和 URL 等價，URN 則是獨立的用法</p>
+<p>大概可以理解為 URI = URL + URN, 這裡不深入探討三者的差異</p>
+<p>但是以現今的用法來說, URI 可以看作和 URL 等價, URN 則是獨立的用法</p>
 <ul>
 <li><a href="https://www.rfc-editor.org/rfc/rfc2141">URN RFC2141</a></li>
 </ul>
@@ -190,8 +203,8 @@ scheme  user information     host     port                  query         fragme
 <p>而常見的</p>
 <pre><code>https://www.google.com
 </code></pre>
-<p>若未指定通訊埠(之後都稱 port )，http 使用 80 port，https 使用 443 port</p>
-<p>請注意，URL 不一定只用在 HTTP 協議上，比方說 mysql 或是 postgresql 可以使用 URL 的方式登入</p>
+<p>若未指定通訊埠(之後都稱 port ), http 使用 80 port, https 使用 443 port</p>
+<p>請注意, URL 不一定只用在 HTTP 協議上, 比方說 mysql 或是 postgresql 可以使用 URL 的方式登入</p>
 <ul>
 <li>用戶名稱為 Nero</li>
 <li>密碼為 a1234qwer</li>
@@ -202,20 +215,20 @@ scheme  user information     host     port                  query         fragme
 <p>那個可以使用</p>
 <pre><code>postgresql://Nero:a1234qwer@test.database.cc:5432/mydatabase
 </code></pre>
-<p>或是加上 Query 參數，設定額外的資訊，如</p>
+<p>或是加上 Query 參數, 設定額外的資訊, 如</p>
 <pre><code>postgresql://Nero:a1234qwer@test.database.cc:5432/mydatabase?connect_timeout=10&amp;application_name=myapp
 </code></pre>
-<p>而 username 和 password，實務上比較少用到，但是如果你想嘗試的話，可以透過這種方法驗證：</p>
+<p>而 username 和 password, 實務上比較少用到, 但是如果你想嘗試的話, 可以透過這種方法驗證：</p>
 <ul>
-<li>在 github 或是 gitlab 上開啟 Repo，並提交 initial commit</li>
+<li>在 github 或是 gitlab 上開啟 Repo, 並提交 initial commit</li>
 <li>git clone 該 repo</li>
-<li>git push，此時終端機會請你輸入帳號、密碼</li>
+<li>git push, 此時終端機會請你輸入帳號、密碼</li>
 <li>中止上個階段</li>
 <li>使用指令 <code>git remote set-url origin https://[username]:[password]@github.com/&lt;repo&gt;</code></li>
-<li>再次嘗試 push，此時不必輸入帳號、密碼就可以完成驗證</li>
+<li>再次嘗試 push, 此時不必輸入帳號、密碼就可以完成驗證</li>
 </ul>
 <h2 id="跟-url-有關的-api"><a class="header" href="#跟-url-有關的-api">跟 URL 有關的 API</a></h2>
-<p>在瀏覽器中，有個<code>URL</code>物件，可以用來解析基於 HTTPS 和 HTTP 的 URL</p>
+<p>在瀏覽器中, 有個<code>URL</code>物件, 可以用來解析基於 HTTPS 和 HTTP 的 URL</p>
 <pre><code class="language-js">const str = &quot;https://abc:passwd@dev.yhchen.monster?key=1&amp;v=2#test&quot;
 const url = new URL(str); /* 
 {
@@ -235,18 +248,18 @@ const url = new URL(str); /*
 */
 </code></pre>
 <ul>
-<li><code>host</code> 與 <code>hostname</code> 有微小的差異，出現在含有 port 的時候
+<li><code>host</code> 與 <code>hostname</code> 有微小的差異, 出現在含有 port 的時候
 <ul>
-<li>host 包含 domain name + port，例如 <code>localhost:8080</code></li>
-<li>hostname 僅包含 domain name，例如 <code>localhost</code></li>
+<li>host 包含 domain name + port, 例如 <code>localhost:8080</code></li>
+<li>hostname 僅包含 domain name, 例如 <code>localhost</code></li>
 </ul>
 </li>
-<li><code>origin</code> 包含了 protocol + host，比方說 <code>https://localhost:8080</code></li>
-<li><code>href</code> 意思是指 <code>hyper refer</code>超連結，就是原本的輸入</li>
+<li><code>origin</code> 包含了 protocol + host, 比方說 <code>https://localhost:8080</code></li>
+<li><code>href</code> 意思是指 <code>hyper refer</code>超連結, 就是原本的輸入</li>
 <li><code>search</code> 包含了 <code>?</code> 還有之後的Query</li>
 <li><code>hash</code> 包含了 <code>#</code> 還有之後的Fragment</li>
 </ul>
-<p>通常來說，查詢字串的形式為<code>key=value</code>，並透過<code>&amp;</code> 連結起來</p>
+<p>通常來說, 查詢字串的形式為<code>key=value</code>, 並透過<code>&amp;</code> 連結起來</p>
 <p>可以用複雜一點的作法來 parse 查詢字串：</p>
 <pre><code class="language-js">const str = &quot;https://dev.yhchen.monster?key=1&amp;v=2&amp;g=25&amp;k=40&quot;
 const url = new URL(str);
@@ -254,7 +267,7 @@ const query = url.search;
 const entries = query.slice(1).split('&amp;').map(token =&gt; token.split('='))
 const queryObj = Object.fromEntries(entries);
 </code></pre>
-<p>不過各位學員其實可以注意到，<code>URL</code>物件有提供 <code>searchParams</code> 這個物件，他提供了一些實用的方法</p>
+<p>不過各位學員其實可以注意到, <code>URL</code>物件有提供 <code>searchParams</code> 這個物件, 他提供了一些實用的方法</p>
 <p>假設現在有個複雜一點的 Query String：</p>
 <pre><code>?key=1&amp;v=2&amp;g=25&amp;k=40&amp;qe=hello
 </code></pre>
@@ -295,10 +308,10 @@ params.set('test', '0')
 params.delete('test')
 // url.search: &quot;?key=1&amp;v=2&amp;g=25&amp;k=40&amp;qe=hello&quot;
 </code></pre>
-<p>同時，可以透過 <code>location.href</code> 取得目前的網址</p>
-<p>至於 <code>Fragment</code>，是比較特殊的用法，在之後幾個章節在說明</p>
+<p>同時, 可以透過 <code>location.href</code> 取得目前的網址</p>
+<p>至於 <code>Fragment</code>, 是比較特殊的用法, 在之後幾個章節在說明</p>
 <h2 id="相對與絕對路徑"><a class="header" href="#相對與絕對路徑">相對與絕對路徑</a></h2>
-<p>之前有提到過，會透過 <code>fetch</code> API 抓取遠端的資料，並且假定目前的網址為</p>
+<p>之前有提到過, 會透過 <code>fetch</code> API 抓取遠端的資料, 並且假定目前的網址為</p>
 <pre><code>https://www.example.com/docs/page/URL-intro
 </code></pre>
 <p>而 API 的端點位於 <code>https://www.example.com/api/datas</code>：</p>
@@ -306,8 +319,8 @@ params.delete('test')
 
 fetch(&quot;/api/datas&quot;) // It Works!
 </code></pre>
-<p>原因在於，一開始的<code>/</code> 會改變 URL 的參照，使用 <code>/</code> 發出的請求，會以 <code>origin</code> 作為 Base</p>
-<p>而沒有使用 <code>/</code>，則是以當前路徑作為參照點：</p>
+<p>原因在於, 一開始的<code>/</code> 會改變 URL 的參照, 使用 <code>/</code> 發出的請求, 會以 <code>origin</code> 作為 Base</p>
+<p>而沒有使用 <code>/</code>, 則是以當前路徑作為參照點：</p>
 <pre><code class="language-js">// Current Location: https://www.example.com/docs/page/URL-intro
 
 fetch(&quot;api/datas&quot;) // 請求的URL為 https://www.example.com/docs/page/api/datas
@@ -316,11 +329,11 @@ fetch(&quot;/api/datas&quot;) // 請求的URL為 https://www.example.com/api/dat
 </code></pre>
 <p>這是一個需要注意的地方</p>
 <h2 id="章節回顧"><a class="header" href="#章節回顧">章節回顧</a></h2>
-<p>該章節僅需要知道 URL 的構成語法，以及瀏覽器中與 URL 有關的 API 即可</p>
+<p>該章節僅需要知道 URL 的構成語法, 以及瀏覽器中與 URL 有關的 API 即可</p>
 <ul>
 <li>URL 的組成</li>
 <li><code>URL</code> 物件與 <code>location.href</code></li>
-<li>發出Request時，相對路徑與絕對路徑的差異</li>
+<li>發出Request時, 相對路徑與絕對路徑的差異</li>
 </ul>
 
                     </main>

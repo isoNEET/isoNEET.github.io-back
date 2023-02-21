@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="zh-TW" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>6. 常用技巧與函數 - Web Study Notes</title>
+        <title>常用技巧與函數 - Web Study Notes</title>
 
         <!-- Custom HTML head -->
         
@@ -12,14 +12,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <meta property="og:title" content="isoNEET - Web 教材" />
-        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程，並且還會介紹一些相關工具的使用" />
-        <meta property="og:image" content="https://isoneet.org/isoneet.png" />
-        <meta property="og:image:width" content="1920" />
-        <meta property="og:image:height" content="1080" />
-        <meta property="og:url" content="https://isoneet.org/web-learning/index.html" />
-        
-        <meta property="twitter:card" content="summary_large_image"> 
+        <!-- HTML Meta Tags -->
+        <title>isoNEET - Web Study Note</title>
+        <meta name="description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://isoneet.org/web-learning/index.html">
+        <meta property="og:title" content="isoNEET - Web Study Note">
+        <meta property="og:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta property="og:image" content="https://isoneet.org/isoneet.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="isoneet.org/web-learning">
+        <meta property="twitter:url" content="https://isoneet.org/web-learning/index.html">
+        <meta name="twitter:title" content="isoNEET - Web Study Note">
+        <meta name="twitter:description" content="JavaScript 允許你在網頁上加入互動功能。這篇文章會幫助您踏上學習這個令人興奮的語言的旅程, 並且還會介紹一些相關工具的使用">
+        <meta name="twitter:image" content="https://isoneet.org/isoneet.png">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -38,8 +47,8 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href=".././mdbook-admonish.css">
-        <link rel="stylesheet" href="../././mdbook-admonish.css">
+        <link rel="stylesheet" href=".././theme/mdbook-admonish.css">
+        <link rel="stylesheet" href=".././theme/catppuccin.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
@@ -93,7 +102,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Visual Studio Code</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 1. 語法速覽</a></li><li class="chapter-item expanded "><a href="../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 2. 深入型別系統</a></li><li class="chapter-item expanded "><a href="../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 3. 物件與類別</a></li><li class="chapter-item expanded "><a href="../javascript/Architecture.html"><strong aria-hidden="true">3.4.</strong> 4. JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../javascript/Asynchronous.html"><strong aria-hidden="true">3.5.</strong> 5. 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../javascript/Common-skill.html" class="active"><strong aria-hidden="true">3.6.</strong> 6. 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../javascript/Conclusion.html"><strong aria-hidden="true">3.7.</strong> 7. 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">TypeScript</li><li class="chapter-item expanded "><a href="../typescript/Overview.html"><strong aria-hidden="true">4.</strong> 概觀</a></li><li class="chapter-item expanded affix "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sections/related-work/HTTP.html"><strong aria-hidden="true">5.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../sections/related-work/URL.html"><strong aria-hidden="true">5.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../sections/related-work/API.html"><strong aria-hidden="true">5.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">yhchen.space@gmail.com</li><li class="chapter-item expanded "><a href="../Introduce.html"><strong aria-hidden="true">1.</strong> 介紹</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 開發工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../devTools/git.html"><strong aria-hidden="true">2.1.</strong> Git</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JavaScript Core</li><li class="chapter-item expanded "><a href="../javascript/Overview.html"><strong aria-hidden="true">3.</strong> 概觀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../javascript/Syntax.html"><strong aria-hidden="true">3.1.</strong> 語法速覽</a></li><li class="chapter-item expanded "><a href="../javascript/Types.html"><strong aria-hidden="true">3.2.</strong> 深入型別系統</a></li><li class="chapter-item expanded "><a href="../javascript/Object.html"><strong aria-hidden="true">3.3.</strong> 物件與類別</a></li><li class="chapter-item expanded "><a href="../javascript/This.html"><strong aria-hidden="true">3.4.</strong> This 與閉包</a></li><li class="chapter-item expanded "><a href="../javascript/Engine.html"><strong aria-hidden="true">3.5.</strong> JavaScript引擎架構</a></li><li class="chapter-item expanded "><a href="../javascript/Asynchronous.html"><strong aria-hidden="true">3.6.</strong> 非同步程式設計</a></li><li class="chapter-item expanded "><a href="../javascript/Common-skill.html" class="active"><strong aria-hidden="true">3.7.</strong> 常用技巧與函數</a></li><li class="chapter-item expanded "><a href="../javascript/Conclusion.html"><strong aria-hidden="true">3.8.</strong> 總結</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">RESTful API 相關知識</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sections/related-work/HTTP.html"><strong aria-hidden="true">4.1.</strong> 1. HTTP 協定</a></li><li class="chapter-item expanded "><a href="../sections/related-work/URL.html"><strong aria-hidden="true">4.2.</strong> 2. URL</a></li><li class="chapter-item expanded "><a href="../sections/related-work/API.html"><strong aria-hidden="true">4.3.</strong> 3. API 與 RESTful API</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -111,11 +120,15 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -155,9 +168,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="常用技巧與函數"><a class="header" href="#常用技巧與函數">常用技巧與函數</a></h1>
-<p>這個部分，統整了一些常用的 JavaScript 函式及語法</p>
+<p>這個部分, 統整了一些常用的 JavaScript 函式及語法</p>
 <h2 id="解構賦值"><a class="header" href="#解構賦值">解構賦值</a></h2>
-<p>解構賦值的概念是，如果被引用的值屬於物件或是陣列，可以用同樣結構的宣告，把值取出來：</p>
+<p>解構賦值的概念是, 如果被引用的值屬於物件或是陣列, 可以用同樣結構的宣告, 把值取出來：</p>
 <pre><code class="language-js">
 const point = {
   x: 10,
@@ -168,7 +181,7 @@ const point = {
 const { x, y, z } = point;
 // x = 10 , y = 20 , z = 30
 </code></pre>
-<p>也可以使用別名的方式，比方說</p>
+<p>也可以使用別名的方式, 比方說</p>
 <pre><code class="language-js">const point = {
   x: 10,
   y: 20,
@@ -179,7 +192,7 @@ const { x: a, y: b, z: c } = point;
 // a = 10 , b = 20 , c = 30
 
 // 稍微排序一下
-// 對照 point 的宣告，a b c 剛好在 x y z 的值上
+// 對照 point 的宣告, a b c 剛好在 x y z 的值上
 // 因此會宣告a, b, c 三個變數分別對應到x, y ,z
 const { 
   x: a,
@@ -211,7 +224,7 @@ function getPoint({x, y, z}) {
 getPoint(point) // print 10 20 30
 getPoint({x: 100, y: 200}) // print 100 200 undefined
 </code></pre>
-<p>即使物件多麼複雜，只要有辦法宣告成同樣的形式，都可以解構</p>
+<p>即使物件多麼複雜, 只要有辦法宣告成同樣的形式, 都可以解構</p>
 <pre><code class="language-js">const complexObj = {
   a: {
     b: {
@@ -242,14 +255,14 @@ console.log(myVar) // print 400
 <p>參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></p>
 <hr />
 <p>展開運算子</p>
-<p>可以使用 <code>...</code> 運算子，對物件或是迭代器進行展開：</p>
+<p>可以使用 <code>...</code> 運算子, 對物件或是迭代器進行展開：</p>
 <p>陣列展開</p>
 <pre><code class="language-js">let arr = [10, 20, 30, 40, 50];
 let [first, ...data] = arr;
 // first = 10
-// data 則是把剩下的展開， data = [20, 30, 40, 50]
+// data 則是把剩下的展開,  data = [20, 30, 40, 50]
 
-let [first, ...data, last] = arr //Error，展開運算子必須得要放在最後
+let [first, ...data, last] = arr //Error, 展開運算子必須得要放在最後
 </code></pre>
 <p>物件展開</p>
 <pre><code class="language-js">const point = {
@@ -268,7 +281,7 @@ const { x, ...other } = point
 const arr = [1, 2, 3];
 sum(...arr); //會展開成 sum(1, 2, 3)
 </code></pre>
-<p>反過來，也可以在參數展開</p>
+<p>反過來, 也可以在參數展開</p>
 <pre><code class="language-js">function sum(...numbers) {
   let res = 0;
   for(let i = 0; i &lt; numbers.length; ++i)
@@ -280,7 +293,7 @@ sum(1,2,3,4,5,6); // return 21
 </code></pre>
 <p>參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax#rest_syntax_parameters">Spread syntax</a></p>
 <h3 id="進階用法"><a class="header" href="#進階用法">進階用法</a></h3>
-<p>可以用來拷貝一層 array (請注意，該方法不是深拷貝，僅是拷貝一層陣列而已)</p>
+<p>可以用來拷貝一層 array (請注意, 該方法不是深拷貝, 僅是拷貝一層陣列而已)</p>
 <pre><code class="language-js">let arr = [1,2,3,4,5,6,7,8];
 let arr2 = arr;
 let arr3 = [...arr]; // 展開 arr
@@ -288,7 +301,7 @@ let arr3 = [...arr]; // 展開 arr
 console.log(arr === arr2); // true
 console.log(arr2 === arr3); // false
 </code></pre>
-<p>也可以用來合併物件or陣列：</p>
+<p>也可以用來合併物件 or 陣列：</p>
 <pre><code class="language-js">let obj1 = {
   x: 10,
   y: 20
@@ -334,11 +347,11 @@ const obj = {
   ...defaultValue,
 }
 // obj = { x: 100, y: 200, z: 300 }
-// 因為 defaultValue 後展開，所以把原本的值又蓋掉了
+// 因為 defaultValue 後展開, 所以把原本的值又蓋掉了
 
 </code></pre>
 <h2 id="物件迭代器"><a class="header" href="#物件迭代器">物件迭代器</a></h2>
-<p>在 <code>Object.prototype</code> 中，提供了幾種實用的方法</p>
+<p>在 <code>Object.prototype</code> 中, 提供了幾種實用的方法</p>
 <pre><code class="language-js">const obj = {
   x: 10,
   y: 20,
@@ -364,12 +377,12 @@ for(const pair of Object.entries(obj)) {
   // b false
 }
 
-/* 當然，上面的用法可以合併解構附值 */
+/* 當然, 上面的用法可以合併解構附值 */
 for(const [key, value] of Object.entries(obj)) {
   console.log(key, value) // 結果同上
 }
 
-/* 前面有提到，迭代器可以被展開 */
+/* 前面有提到, 迭代器可以被展開 */
 let keys = [...Object.keys(obj)]  // ['x', 'y', 'a', 'b']
 let value = [...Object.values(obj)] // [10, 20, true, false]
 let entries = [...Object.entries(obj)] 
@@ -385,16 +398,16 @@ let entries = [...Object.entries(obj)]
 /* 使用 fromEntries 還原物件 */
 const o = Object.fromEntries(entries) // o = obj
 </code></pre>
-<p>此外，諸如<code>string</code> 等也有實現迭代器，因此</p>
+<p>此外, 諸如<code>string</code> 等也有實現迭代器, 因此</p>
 <pre><code class="language-js">
 console.log(...'hello,world') //輸出 h e l l o , w o r l d 共11個字元
 
 </code></pre>
 <hr />
 <h2 id="短路求值以及--運算子"><a class="header" href="#短路求值以及--運算子">短路求值以及 ?? 運算子</a></h2>
-<p>在 JavaScript 中， boolean 判斷主要分為 <code>falsy</code> 和 <code>truthy</code></p>
-<p>falsy 的意義是，在判斷式中會被當成 <code>false</code> 的值，truthy 則反之</p>
-<p>只需要記得 falsy 就好，falsy的值有：</p>
+<p>在 JavaScript 中,  boolean 判斷主要分為 <code>falsy</code> 和 <code>truthy</code></p>
+<p>falsy 的意義是, 在判斷式中會被當成 <code>false</code> 的值, truthy 則反之</p>
+<p>只需要記得 falsy 就好, falsy的值有：</p>
 <ul>
 <li>false</li>
 <li>0</li>
@@ -407,13 +420,13 @@ console.log(...'hello,world') //輸出 h e l l o , w o r l d 共11個字元
 <li>document.all</li>
 </ul>
 <p>其餘的都是 Truthy 值</p>
-<p>而看到的 <code>||</code> 和 <code>&amp;&amp;</code> 運算子，其真正的定義如下：</p>
-<pre><code class="language-js">let res = A || B //若 A 為false，才執行 B 敘述
+<p>而看到的 <code>||</code> 和 <code>&amp;&amp;</code> 運算子, 其真正的定義如下：</p>
+<pre><code class="language-js">let res = A || B //若 A 為false, 才執行 B 敘述
 
 /* Example */
-let res1 = 100 || 'string' || console.log(100) // 100 是 truthy，後面不必判斷了，短路求值
-let res2 = 0 || 'string' || console.log(100) // 0 是 falsy, 'string' 是 truthy，短路求值
-let res3 = A() || B() || C() // 若 A() 回傳 truthy 值，則B、C 不執行
+let res1 = 100 || 'string' || console.log(100) // 100 是 truthy, 後面不必判斷了, 短路求值
+let res2 = 0 || 'string' || console.log(100) // 0 是 falsy, 'string' 是 truthy, 短路求值
+let res3 = A() || B() || C() // 若 A() 回傳 truthy 值, 則B、C 不執行
 
 /* 以下與 res3 等價 */
 if(!A()) {
@@ -422,12 +435,12 @@ if(!A()) {
   }
 }
 </code></pre>
-<pre><code class="language-js">let res = A &amp;&amp; B //若 A 為truthy，才執行 B 敘述
+<pre><code class="language-js">let res = A &amp;&amp; B //若 A 為truthy, 才執行 B 敘述
 
 /* Example */
-let res1 = false &amp;&amp; 0 &amp;&amp; console.log(100) // false 是 falsy，短路求值
-let res2 = true &amp;&amp; 0 &amp;&amp; console.log(100) // true 是 truthy，0 是 falsy，短路求值
-let res3 = true &amp;&amp; 100 &amp;&amp; console.log(100) // 前面兩個都是 truthy，執行 console.log
+let res1 = false &amp;&amp; 0 &amp;&amp; console.log(100) // false 是 falsy, 短路求值
+let res2 = true &amp;&amp; 0 &amp;&amp; console.log(100) // true 是 truthy, 0 是 falsy, 短路求值
+let res3 = true &amp;&amp; 100 &amp;&amp; console.log(100) // 前面兩個都是 truthy, 執行 console.log
 let res4 = A() &amp;&amp; B() &amp;&amp; C();
 
 /* 以下與 res4 等價 */
@@ -437,7 +450,7 @@ if(A()) {
   }
 }
 </code></pre>
-<p><code>??</code> 空值合併運算符比較特殊，他會排除nullish(null 或是 undefined)來判斷求值</p>
+<p><code>??</code> 空值合併運算符比較特殊, 他會排除nullish(null 或是 undefined)來判斷求值</p>
 <pre><code class="language-js">let value1 = 0 || 100; // value = 100
 let value2 = 0 ?? 100; // value = 0, 因為 0 不是 nullish
 let value3 = null ?? 100; // value = 100
@@ -457,9 +470,9 @@ let value6 = '' ?? 'default string' // value = '', 因為 '' 不為 nullish
   return res.userData.name;
 }
 </code></pre>
-<p>上面的函式有個重大錯誤，那就是 res 有可能是 <code>null</code>，那執行 res.userData 相當於存取 <code>null</code> 的 <code>userData</code> 屬性</p>
-<p>res.userData 也有可能是 <code>null</code>，導致相當於存取 <code>null</code> 的 <code>name</code> 屬性</p>
-<p>這會導致 Error 被擲出，因此需要進行檢查，比方說：</p>
+<p>上面的函式有個重大錯誤, 那就是 res 有可能是 <code>null</code>, 那執行 res.userData 相當於存取 <code>null</code> 的 <code>userData</code> 屬性</p>
+<p>res.userData 也有可能是 <code>null</code>, 導致相當於存取 <code>null</code> 的 <code>name</code> 屬性</p>
+<p>這會導致 Error 被擲出, 因此需要進行檢查, 比方說：</p>
 <pre><code class="language-js">async function findOrEmpty() {
   const res = await fetch(urlWithId)
   let name = 'DEFAULT';
@@ -471,7 +484,7 @@ let value6 = '' ?? 'default string' // value = '', 因為 '' 不為 nullish
   return name;
 }
 </code></pre>
-<p>學會了短路求值，可以使用：</p>
+<p>學會了短路求值, 可以使用：</p>
 <pre><code class="language-js">async function findOrEmpty() {
   const res = await fetch(urlWithId)
   let name = 'DEFAULT';
@@ -481,24 +494,24 @@ let value6 = '' ?? 'default string' // value = '', 因為 '' 不為 nullish
   return name;
 }
 </code></pre>
-<p>而 <code>?.</code> 運算子則允許存取一個<code>可能</code>為nullish的數值，並當遇上nullish時，回傳undefined 並且中止求值</p>
+<p>而 <code>?.</code> 運算子則允許存取一個<code>可能</code>為nullish的數值, 並當遇上nullish時, 回傳undefined 並且中止求值</p>
 <pre><code class="language-js">async function findOrEmpty() {
   const res = await fetch(urlWithId)
 
-  // 如果 res = null，直接回傳 undefine
+  // 如果 res = null, 直接回傳 undefine
   // 並中止對 res.userData、res.userData.name 求值
   return res?.userData.name; 
 }
 </code></pre>
-<p>已經知道遇上 nullish 會回傳 undefined，上面使用預設值的寫法可以改成：</p>
+<p>已經知道遇上 nullish 會回傳 undefined, 上面使用預設值的寫法可以改成：</p>
 <pre><code class="language-js">async function findOrEmpty() {
   const res = await fetch(urlWithId)
-  return res?.userData.name ?? 'DEFAULT'; // 使用空值合併運算子，給予初始值
+  return res?.userData.name ?? 'DEFAULT'; // 使用空值合併運算子, 給予初始值
 }
 </code></pre>
 <p>參考 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator">?? operator</a> 和 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining</a></p>
 <h2 id="陣列"><a class="header" href="#陣列">陣列</a></h2>
-<p>在 JavaScript 中，陣列的方法算是極度常用的，這裡只說明幾個常用的 Function：</p>
+<p>在 JavaScript 中, 陣列的方法算是極度常用的, 這裡只說明幾個常用的 Function：</p>
 <p>先假定原始資料：</p>
 <pre><code class="language-js">const users = [
   {
@@ -528,12 +541,12 @@ let value6 = '' ?? 'default string' // value = '', 因為 '' 不為 nullish
   },
 ]
 </code></pre>
-<p>陣列大部分的參數，都是接受一個簽章為：</p>
+<p>陣列大部分的參數, 都是接受一個簽章為：</p>
 <pre><code class="language-js">function callback(element, index, arr) {
   console.log(element, index, arr);
 }
 </code></pre>
-<p>的方法，三個參數分別是</p>
+<p>的方法, 三個參數分別是</p>
 <ul>
 <li>當前元素</li>
 <li>當前元素索引</li>
@@ -546,7 +559,7 @@ let value6 = '' ?? 'default string' // value = '', 因為 '' 不為 nullish
 
 console.log(data) // [3800,4000,8900,7000,5200]
 </code></pre>
-<p><strong>Note!</strong> 有個很接近的方法叫做 <code>forEach</code>，但是不建議使用，他算是 for-loop 的callback版本</p>
+<p><strong>Note!</strong> 有個很接近的方法叫做 <code>forEach</code>, 但是不建議使用, 他算是 for-loop 的callback版本</p>
 <pre><code class="language-js">for(let i = 0; i users.length; ++i) {
   console.log(`index = ${i}, value = ${users[i]}`);
 }
@@ -562,13 +575,13 @@ let data = users.forEach((e,i) =&gt; {
 
 console.log(data) // undefined, forEach不回傳陣列
 </code></pre>
-<p>因為 <code>forEach</code> 可以被 <code>map</code> 取代，且 <code>forEach</code> 不回傳陣列，因此會有人用來修改原始陣列，比方說</p>
+<p>因為 <code>forEach</code> 可以被 <code>map</code> 取代, 且 <code>forEach</code> 不回傳陣列, 因此會有人用來修改原始陣列, 比方說</p>
 <pre><code class="language-js">users.forEach((e,i, arr) =&gt; {
   arr[i] = e.salary;
 })
 </code></pre>
-<p>這不是一個好做法，因此不推薦使用 <code>forEach</code></p>
-<p>此外，早期還未出現展開運算子之前，可以用 <code>map</code> 複製陣列</p>
+<p>這不是一個好做法, 因此不推薦使用 <code>forEach</code></p>
+<p>此外, 早期還未出現展開運算子之前, 可以用 <code>map</code> 複製陣列</p>
 <pre><code class="language-js">// const data = [...arr]
 const data = arr.map(e =&gt; e);
 </code></pre>
@@ -602,13 +615,13 @@ users.sort((a,b) =&gt; a.name.localeCompare(b.name)) // 根據 name 排序
 </code></pre>
 <h3 id="slice-進行分割"><a class="header" href="#slice-進行分割"><code>slice</code> 進行分割</a></h3>
 <pre><code class="language-js">// users.slice(startIndex, count)
-users.slice(0, 2) // 從index 0 開始，取出兩個元素
+users.slice(0, 2) // 從index 0 開始, 取出兩個元素
 </code></pre>
-<h3 id="find-傳入條件式尋找元素"><a class="header" href="#find-傳入條件式尋找元素"><code>find</code> 傳入條件式，尋找元素</a></h3>
-<pre><code class="language-js">// 因為 find 不一定會找到，建議使用 ?. 來存取物件
+<h3 id="find-傳入條件式-尋找元素"><a class="header" href="#find-傳入條件式-尋找元素"><code>find</code> 傳入條件式, 尋找元素</a></h3>
+<pre><code class="language-js">// 因為 find 不一定會找到, 建議使用 ?. 來存取物件
 const name = users.find(e =&gt; e.age === 22)?.name 
 </code></pre>
-<p>在實例上，會建議通過一系列的轉換，取出所需要的資料，比方說：</p>
+<p>在實例上, 會建議通過一系列的轉換, 取出所需要的資料, 比方說：</p>
 <pre><code class="language-js">const users = [
   {
     name: 'Peter',
@@ -655,26 +668,26 @@ const salarySigma = users
 console.log(salarySigma) // 35543
 const salaryAvg = salarySigma / users.filter(e =&gt; e.salary &gt; 5000).length // 7108.6
 </code></pre>
-<p>通過一系列的轉換函式，取出所需要的資料</p>
+<p>通過一系列的轉換函式, 取出所需要的資料</p>
 <blockquote>
-<p>絕大部分的 Web 應用，都是處理資料的轉換，因此字串、陣列相關的方法，幾乎是必備的知識</p>
-<p>反過來說，雖然也有情況要進行CPU的密集計算，但是該情況還是相對比較少的</p>
+<p>絕大部分的 Web 應用, 都是處理資料的轉換, 因此字串、陣列相關的方法, 幾乎是必備的知識</p>
+<p>反過來說, 雖然也有情況要進行CPU的密集計算, 但是該情況還是相對比較少的</p>
 </blockquote>
-<p>前面提到的用法，幾乎涵蓋大部分陣列的使用情境，但也建議稍微看一下 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String.prototype</a> 跟 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp.prototype</a> 的資料</p>
-<p>其中 RegExp 是 Regular Expression 正規表示法的意思，允許使用模式來匹配字串，舉例來說：</p>
-<pre><code class="language-js">// 假定輸入的資料是日期格式，且有可能是 YYYY-MM-DD 或是 YYYY/MM/DD
+<p>前面提到的用法, 幾乎涵蓋大部分陣列的使用情境, 但也建議稍微看一下 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String.prototype</a> 跟 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp.prototype</a> 的資料</p>
+<p>其中 RegExp 是 Regular Expression 正規表示法的意思, 允許使用模式來匹配字串, 舉例來說：</p>
+<pre><code class="language-js">// 假定輸入的資料是日期格式, 且有可能是 YYYY-MM-DD 或是 YYYY/MM/DD
 
 const date1 = &quot;2001-01-05&quot;;
 const date2 = &quot;1998/01/02&quot;;
 const rule = /(?&lt;year&gt;[0-9]{0,4})[\-\/](?&lt;month&gt;[0-9]{0,2})[\-\/](?&lt;date&gt;[0-9]{0,2})/;
 </code></pre>
 <p><img src="./images/RegExp.png" alt="RegExp" /></p>
-<p>這只是一個很小的範例，還有很多種用法，比如說：驗證電子信箱、網址格式、特定的文字輸入...等，且上方的RegExp 是有小瑕疵的(你可以嘗試找出來！)</p>
-<p>總之，字串與陣列的處理，涵蓋大部分的操作情境，且額外要注意的事情是：一些 ArrayLike 物件，若有實現迭代器，也是可以輕鬆轉換成陣列的</p>
+<p>這只是一個很小的範例, 還有很多種用法, 比如說：驗證電子信箱、網址格式、特定的文字輸入...等, 且上方的RegExp 是有小瑕疵的(你可以嘗試找出來！)</p>
+<p>總之, 字串與陣列的處理, 涵蓋大部分的操作情境, 且額外要注意的事情是：一些 ArrayLike 物件, 若有實現迭代器, 也是可以輕鬆轉換成陣列的</p>
 <p><img src="./images/NodeList_to_Array.png" alt="n2a" /></p>
-<p><code>querySelectorAll</code> 回傳的結果是 <code>NodeList</code>，他並沒有陣列的成員或是屬性，也無法通過 <code>Array.isArray</code> 的測試；</p>
-<p>但是經過迭代器展開，或是早期的轉換方式 <code>Array.prototype.slice.call</code> 後，就成為了陣列型別</p>
-<p>這些&quot;像是&quot;陣列樣子的物件，被稱作 <code>ArrayLike</code>，除了陣列本身是<code>ArrayLike</code>(因為陣列算是一種特殊的物件，JavaScript沒有真正意義的原生陣列)，還有<code>String</code>也是很經典的例子</p>
+<p><code>querySelectorAll</code> 回傳的結果是 <code>NodeList</code>, 他並沒有陣列的成員或是屬性, 也無法通過 <code>Array.isArray</code> 的測試；</p>
+<p>但是經過迭代器展開, 或是早期的轉換方式 <code>Array.prototype.slice.call</code> 後, 就成為了陣列型別</p>
+<p>這些&quot;像是&quot;陣列樣子的物件, 被稱作 <code>ArrayLike</code>, 除了陣列本身是<code>ArrayLike</code>(因為陣列算是一種特殊的物件, JavaScript沒有真正意義的原生陣列), 還有<code>String</code>也是很經典的例子</p>
 <h3 id="json的序列化反序列化"><a class="header" href="#json的序列化反序列化">JSON的序列化/反序列化</a></h3>
 <pre><code class="language-js">/* 反序列化 */
 const strLikeJson = '{ &quot;a&quot;:100, &quot;b&quot;: 200, &quot;c&quot; :        3000 }';
@@ -691,14 +704,14 @@ const object = JSON.parse(strLikeJson);
 const str = JSON.stringify({ a: 10, b: 20, c: 30 });
 // string '{&quot;a&quot;:10,&quot;b&quot;:20,&quot;c&quot;:30}'
 </code></pre>
-<p>JSON.parse 用來把 JSON 字串轉換為 JS物件，且一定要是 <em>JSON字串</em>，這個說法有一點模糊，看下面的例子</p>
+<p>JSON.parse 用來把 JSON 字串轉換為 JS物件, 且一定要是 <em>JSON字串</em>, 這個說法有一點模糊, 看下面的例子</p>
 <pre><code class="language-js">const str1 = &quot;{ a: 10, b: 20 }&quot;;
 const str2 = &quot;{ a: 10, b: 20, }&quot;;
 const str3 = &quot;{ 'a': 10, 'b': 20 }&quot;;
 const str4 = &quot;{ \&quot;a\&quot;: 10, \&quot;b\&quot;: 20 }&quot;;
 </code></pre>
-<p>在上述的例子中，只有 <code>str4</code> 是合法的 JSON字串</p>
-<p>JSON.parse 可以接受第二個參數 <code>reviver</code> function，在 parse 解析完字串後，可以進行一些修改：</p>
+<p>在上述的例子中, 只有 <code>str4</code> 是合法的 JSON字串</p>
+<p>JSON.parse 可以接受第二個參數 <code>reviver</code> function, 在 parse 解析完字串後, 可以進行一些修改：</p>
 <pre><code class="language-js">const jsonStr = '{ &quot;a&quot;:100, &quot;b&quot;: 200, &quot;c&quot;: 300 }';
 let a = JSON.parse(jsonStr, (key, value) =&gt; {
   console.log(key, value);
@@ -708,8 +721,8 @@ let a = JSON.parse(jsonStr, (key, value) =&gt; {
 });
 // a = { a: 150, b: 250, c: 350 };
 </code></pre>
-<p>這允許在解析的同時進行一些修改或檢驗，但是要注意，最後一個解析會收到 <code>key</code> 為空字串結果，雖然沒有特別註記，但筆者猜測應該是告知開發者，Parse 結束的情況</p>
-<p>如果 <code>reviver</code> 中沒有回傳值為 <code>undefined</code>，則會刪除該屬性：</p>
+<p>這允許在解析的同時進行一些修改或檢驗, 但是要注意, 最後一個解析會收到 <code>key</code> 為空字串結果, 雖然沒有特別註記, 但筆者猜測應該是告知開發者, Parse 結束的情況</p>
+<p>如果 <code>reviver</code> 中沒有回傳值為 <code>undefined</code>, 則會刪除該屬性：</p>
 <pre><code class="language-js">const jsonStr = '{ &quot;a&quot;:100, &quot;b&quot;: 200, &quot;c&quot;: 300 }';
 let a = JSON.parse(jsonStr, (key, value) =&gt; {
   switch( key ) {
@@ -722,16 +735,16 @@ let a = JSON.parse(jsonStr, (key, value) =&gt; {
 });
 // a = { c: 300 };
 </code></pre>
-<p>如果當次解析的物件是巢狀的，則由深到淺解析</p>
+<p>如果當次解析的物件是巢狀的, 則由深到淺解析</p>
 <pre><code class="language-js">JSON.parse('{&quot;a&quot;:{&quot;b&quot;:{&quot;c&quot;:{&quot;d&quot;:true}}}}', (k,v) =&gt; { console.log(k); return v});
 // output: d c b a
 </code></pre>
-<p><code>JSON.stringify</code> 則是會把物件轉換成對應的 JSON字串，優先調用 <code>toJSON</code> 方法，然後把 <code>可列舉</code> 跟 <code>可序列化</code> 的屬性進行轉換</p>
+<p><code>JSON.stringify</code> 則是會把物件轉換成對應的 JSON字串, 優先調用 <code>toJSON</code> 方法, 然後把 <code>可列舉</code> 跟 <code>可序列化</code> 的屬性進行轉換</p>
 <ul>
 <li>可列舉：PropertyDescriptor 中 enumerable 為 true 的屬性</li>
-<li>可序列化：例如 function，就不可進行轉換，通常僅轉換：<code>string</code>, <code>boolean</code>, <code>number</code>；如果屬性是陣列或物件，則深入檢查</li>
+<li>可序列化：例如 function, 就不可進行轉換, 通常僅轉換：<code>string</code>, <code>boolean</code>, <code>number</code>；如果屬性是陣列或物件, 則深入檢查</li>
 </ul>
-<p><code>JSON.stringify</code> 可以額外接受兩個參數，第二個參數是 <code>replacer</code>，可以是function 或是 array：</p>
+<p><code>JSON.stringify</code> 可以額外接受兩個參數, 第二個參數是 <code>replacer</code>, 可以是function 或是 array：</p>
 <pre><code class="language-js">const foo = {
   foundation: &quot;Mozilla&quot;,
   model: &quot;box&quot;,
@@ -741,7 +754,7 @@ let a = JSON.parse(jsonStr, (key, value) =&gt; {
 };
 
 const jsonStr = JSON.stringify(foo, (key, value) =&gt; {
-  /* replacer 為 Function 時，如果 return 的值是 undefined, 則忽略該值 */
+  /* replacer 為 Function 時, 如果 return 的值是 undefined, 則忽略該值 */
   if (typeof value === &quot;string&quot;) {
     return undefined;
   }
@@ -750,14 +763,14 @@ const jsonStr = JSON.stringify(foo, (key, value) =&gt; {
 
 // jsonStr = '{&quot;week&quot;:45,&quot;month&quot;:7}'
 
-/* replacer 為 array 時，僅保留對應的key */
+/* replacer 為 array 時, 僅保留對應的key */
 const jsonStr2 = JSON.stringify(foo, ['model', 'month', '??']);
 // jsonStr = '{&quot;model&quot;:&quot;box&quot;,&quot;month&quot;:7}'
 
 </code></pre>
-<p>第三個參數是 <code>space</code> 只是控制縮排而已，例如在輸出文件時，可以使用 <code>JSON.stringify(obj, null, 4)</code> 保留 4個space 的縮排</p>
+<p>第三個參數是 <code>space</code> 只是控制縮排而已, 例如在輸出文件時, 可以使用 <code>JSON.stringify(obj, null, 4)</code> 保留 4個space 的縮排</p>
 <h3 id="匿名函數"><a class="header" href="#匿名函數">匿名函數</a></h3>
-<p>當調用 Lib 的 function，且內部調用極深時，可以再某個地方使用 <code>function(){}</code> 而不是 <code>() =&gt; {}</code>
+<p>當調用 Lib 的 function, 且內部調用極深時, 可以再某個地方使用 <code>function(){}</code> 而不是 <code>() =&gt; {}</code>
 這裡使用 <code>setTimeout()</code> 來說明：</p>
 <pre><code class="language-js">
 setTimeout(function myFn(){
@@ -778,7 +791,7 @@ Uncaught Error
     at (&lt;anonymous&gt;:2:9)
 */
 </code></pre>
-<p>若自己開發Library，或是使用了較深的function invoke，可以加上 <code>function name(){}</code> 來進行除錯，比方說：</p>
+<p>若自己開發Library, 或是使用了較深的function invoke, 可以加上 <code>function name(){}</code> 來進行除錯, 比方說：</p>
 <pre><code class="language-js">
 lib(function myFn(){
   /* do something */
@@ -797,7 +810,7 @@ Uncaught Error
     at (&lt;anonymous&gt;:2:9)
 */
 
-// 反之，若使用 arrow function：
+// 反之, 若使用 arrow function：
 lib(() =&gt; {
   /* do something */
 })

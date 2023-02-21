@@ -310,7 +310,7 @@ function playground_text(playground) {
         var theme;
         try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
         if (theme === null || theme === undefined) {
-            return 'light'; // default
+            return 'latte'; // default
         } else {
             return theme;
         }
